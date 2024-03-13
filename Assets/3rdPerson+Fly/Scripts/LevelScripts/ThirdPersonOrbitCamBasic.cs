@@ -70,6 +70,10 @@ public class ThirdPersonOrbitCamBasic : MonoBehaviour
                     angleV += touch.deltaPosition.y * verticalAimingSpeed * Time.deltaTime;
 
                     // Set vertical movement limit
+
+                    angleH += Mathf.Clamp(Input.GetAxis(XAxis), -1, 1) * 60 * horizontalAimingSpeed * Time.deltaTime;
+                    angleV += Mathf.Clamp(Input.GetAxis(YAxis), -1, 1) * 60 * verticalAimingSpeed * Time.deltaTime;
+
                     angleV = Mathf.Clamp(angleV, minVerticalAngle, targetMaxVerticalAngle);
                 }
             }
