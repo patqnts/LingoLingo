@@ -69,11 +69,6 @@ public class ThirdPersonOrbitCamBasic : MonoBehaviour
                     angleH += touch.deltaPosition.x * horizontalAimingSpeed * Time.deltaTime;
                     angleV += touch.deltaPosition.y * verticalAimingSpeed * Time.deltaTime;
 
-                    // Set vertical movement limit
-
-                    angleH += Mathf.Clamp(Input.GetAxis(XAxis), -1, 1) * 60 * horizontalAimingSpeed * Time.deltaTime;
-                    angleV += Mathf.Clamp(Input.GetAxis(YAxis), -1, 1) * 60 * verticalAimingSpeed * Time.deltaTime;
-
                     angleV = Mathf.Clamp(angleV, minVerticalAngle, targetMaxVerticalAngle);
                 }
             }
@@ -91,6 +86,8 @@ public class ThirdPersonOrbitCamBasic : MonoBehaviour
             // Set vertical movement limit.
             angleV = Mathf.Clamp(angleV, minVerticalAngle, targetMaxVerticalAngle);
         }
+
+		if (!useTouchInput) return;
         // Set camera orientation.
         Quaternion camYRotation = Quaternion.Euler(0, angleH, 0);
 		Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
