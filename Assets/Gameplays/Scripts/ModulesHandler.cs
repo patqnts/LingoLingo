@@ -14,10 +14,10 @@ public class ModulesHandler : MonoBehaviour
 
     [Header("Word Match")]
     public GameObject wordMatch;
-    [Header("Quiz1")]
-    public GameObject quiz1;
-    [Header("Quiz2")]
-    public GameObject quiz2;
+    [Header("Quiz")]
+    public GameObject quizMultipleChoice;
+    [Header("Sentence Form Game")]
+    public GameObject sentenceForm;
     [Header("Quiz3")]
     public GameObject quiz3;
 
@@ -28,7 +28,12 @@ public class ModulesHandler : MonoBehaviour
 
     public void Quiz1()
     {
-        currentGame = Instantiate(quiz1, this.transform);
+        currentGame = Instantiate(quizMultipleChoice, this.transform);
+    }
+
+    public void SentenceFormGame()
+    {
+        currentGame = Instantiate(sentenceForm, this.transform);
     }
 
 }

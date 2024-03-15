@@ -6,20 +6,33 @@ using UnityEngine;
 public class SentenceFormGame : MonoBehaviour
 {
     public static SentenceFormGame instance;
+    public GameObject levelCompleteUI;
+    public Transform gameObjectcontainer;
     public SentenceFormScriptableObject scriptableObject;
     public Transform sentenceContainer;
     public Transform wordsContainer;
     private List<SentenceLine> sentenceLine;
+    public TextMeshProUGUI timer;
+    public int currentScore;
+    public int maxScore;
+    public float gameDuration;
     private void Start()
     {
         GameTimerScript.instance.FinishGameEvent += FinalizeForm;
+        sentenceLine = new List<SentenceLine>();
         instance = this;
+
+        GameTimerScript.instance.StartTimer(gameDuration);
+        GameTimerScript.instance.timerText = timer;
         LoadChallenge();
     }
 
     public void FinalizeForm()
     {
-
+        GameTimerScript.instance.StopTimer();
+        GameObject result = Instantiate(levelCompleteUI, gameObjectcontainer);
+        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {currentScore}/{maxScore}";
+        StartCoroutine(CloseThisGame());
     }
 
     public void LoadChallenge()
@@ -29,6 +42,7 @@ public class SentenceFormGame : MonoBehaviour
         {
             GameObject sentence = Instantiate(scriptableObject.SentenceLine, sentenceContainer);
             SentenceLine line = sentence.GetComponent<SentenceLine>();
+
             sentence.name = sentenceIndex.ToString();
 
             line.SentenceId = sentenceIndex;
@@ -38,8 +52,24 @@ public class SentenceFormGame : MonoBehaviour
             wordObject.GetComponentInChildren<TextMeshProUGUI>().text = word;
             wordObject.GetComponent<DraggableWord>().Id = sentenceIndex;
 
+            sentenceLine.Add(line);
             sentenceIndex++;
         }
+    }
+
+    public void AnswerHandler()
+    {
+        maxScore = sentenceLine.Count;
+        foreach (SentenceLine obj in sentenceLine)
+        {
+            if (obj.Id == obj.SentenceId)
+            {
+                currentScore++;
+            }
+        }
+
+        FinalizeForm(); // Finalize the quiz if all questions have been answered
+        
     }
 
     private void OnDestroy()
