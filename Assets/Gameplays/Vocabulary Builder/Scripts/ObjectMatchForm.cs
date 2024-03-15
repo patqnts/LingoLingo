@@ -23,9 +23,15 @@ public class ObjectMatchForm : MonoBehaviour
     private List<MatchItem> matches = new List<MatchItem>();
     private List<MatchItem> rightItems = new List<MatchItem>();
 
-    private void OnDisable()
+
+    void Start()
     {
-        GameTimerScript.instance.FinishGameEvent -= FinalizeGame;
+        
+        Instance = this;
+        LoadItems();
+        GameTimerScript.instance.FinishGameEvent += FinalizeGame;
+        GameTimerScript.instance.StartTimer(gameDuration);
+        GameTimerScript.instance.timerText = timer;
     }
     private void LoadItems()
     {
@@ -116,19 +122,15 @@ public class ObjectMatchForm : MonoBehaviour
         StartCoroutine(CloseThisGame());
     }
 
-    void Start()
-    {
-        
-        Instance = this;
-        LoadItems();
-        GameTimerScript.instance.FinishGameEvent += FinalizeGame;
-        GameTimerScript.instance.StartTimer(gameDuration);
-        GameTimerScript.instance.timerText = timer;
-    }
 
     private IEnumerator CloseThisGame()
     {
-        yield return new WaitForSeconds(4f);
-        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        GameTimerScript.instance.FinishGameEvent -= FinalizeGame;
     }
 }
