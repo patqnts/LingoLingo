@@ -21,9 +21,14 @@ public class ModulesHandler : MonoBehaviour
     [Header("Quiz3")]
     public GameObject quiz3;
 
-    public void StartGame()
+    public void WordMatch()
     {
         currentGame = Instantiate(wordMatch, this.transform);
+    }
+
+    public void Quiz1()
+    {
+        currentGame = Instantiate(quiz1, this.transform);
     }
 
 }

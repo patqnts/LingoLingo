@@ -7,6 +7,6 @@ public class NPCModuleScript : MonoBehaviour
     // Start is called before the first frame update
    public void OpenChallenge()
     {
-        ModulesHandler.Instance.StartGame();
+        ModulesHandler.Instance.WordMatch();
     }
 }

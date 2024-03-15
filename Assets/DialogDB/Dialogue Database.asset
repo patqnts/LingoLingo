@@ -1021,11 +1021,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 3
         type: 5
@@ -1037,13 +1037,21 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: ' Goodluck!'
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'SetDialoguePanel(false);
+
+          required SetDialoguePanel(true)@Message(CloseGame);
+
+          Continue()@Message(CloseGame)'
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: d5ae647f-103e-4477-9c58-76871d9efb7f
         type: 0
         typeString: 
       conversationID: 2
