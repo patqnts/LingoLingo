@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,13 +13,20 @@ public class ObjectMatchForm : MonoBehaviour
     public MatchScriptableObject MatchScriptableObject;
     public Transform Left;
     public Transform Right;
-
+    public Transform gameObjectcontainer;
     public GameObject levelCompleteUI;
+    public TextMeshProUGUI timer;
+    public float gameDuration;
     private int points = 0;
     private int maxPoints = 0;
     // Start is called before the first frame update
     private List<MatchItem> matches = new List<MatchItem>();
     private List<MatchItem> rightItems = new List<MatchItem>();
+
+    private void OnDisable()
+    {
+        GameTimerScript.instance.FinishGameEvent -= FinalizeGame;
+    }
     private void LoadItems()
     {
         int intName = 0;
@@ -50,6 +58,8 @@ public class ObjectMatchForm : MonoBehaviour
 
     public void FinalizeGame()
     {
+        GameTimerScript.instance.StopTimer();
+
         points = 0;
         if (matches.Count > 0)
         {
@@ -101,19 +111,24 @@ public class ObjectMatchForm : MonoBehaviour
     public void SetResult()
     {
         Debug.Log($"Result: {points}/{maxPoints}");
+        GameObject result = Instantiate(levelCompleteUI,gameObjectcontainer);
+        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {points}/{maxPoints}";
+        StartCoroutine(CloseThisGame());
     }
 
     void Start()
-    {       
+    {
+        
         Instance = this;
         LoadItems();
+        GameTimerScript.instance.FinishGameEvent += FinalizeGame;
+        GameTimerScript.instance.StartTimer(gameDuration);
+        GameTimerScript.instance.timerText = timer;
     }
 
-    private void Update()
+    private IEnumerator CloseThisGame()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            FinalizeGame();
-        }
+        yield return new WaitForSeconds(4f);
+        this.gameObject.SetActive(false);
     }
 }
