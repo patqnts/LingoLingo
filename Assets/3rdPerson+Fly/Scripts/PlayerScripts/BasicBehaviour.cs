@@ -271,7 +271,7 @@ public class BasicBehaviour : MonoBehaviour
 	// Check if player is sprinting.
 	public virtual bool IsSprinting()
 	{
-		return sprint && IsMoving() && CanSprint();
+		return sprint && IsMoving();
 	}
 
 	// Check if player can sprint (all behaviours must allow).
