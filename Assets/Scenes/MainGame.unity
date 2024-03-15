@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueEntrySceneEvents:
-  - guid: 4be6cdf7-ab00-4561-a9eb-6bb7f6ffb224
+  - guid: d590da2c-319a-43a7-9ba4-a6b8607abf0a
     onExecute:
       m_PersistentCalls:
         m_Calls:
@@ -600,6 +600,7 @@ MonoBehaviour:
   YAxis: Analog Y
   useTouchInput: 1
   touchAreaRectTransform: {fileID: 1698571473}
+  controlEnable: 1
 --- !u!81 &248542351
 AudioListener:
   m_ObjectHideFlags: 0
@@ -648,7 +649,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 150
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -820,6 +821,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1951828876864660, guid: f7988944762557542877880bd717822e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 365436836}
+    - targetCorrespondingSourceObject: {fileID: 1951828876864660, guid: f7988944762557542877880bd717822e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 365436839}
   m_SourcePrefab: {fileID: 100100000, guid: f7988944762557542877880bd717822e, type: 3}
 --- !u!1 &365436824 stripped
 GameObject:
@@ -934,9 +938,9 @@ MonoBehaviour:
     onConversationStart:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
+        - m_Target: {fileID: 1539595924}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -947,23 +951,23 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 248542350}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
+          m_TargetAssemblyTypeName: ThirdPersonOrbitCamBasic, Assembly-CSharp
+          m_MethodName: ToggleTouchCam
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
     onConversationEnd:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
+        - m_Target: {fileID: 1539595924}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -974,9 +978,9 @@ MonoBehaviour:
             m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 248542350}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
+          m_TargetAssemblyTypeName: ThirdPersonOrbitCamBasic, Assembly-CSharp
+          m_MethodName: ToggleTouchCam
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1071,13 +1075,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useDefaultGUI: 1
-  guiSkin: {fileID: 0}
+  guiSkin: {fileID: 11400000, guid: dbe874f440d0cf84cb5c28fd70e8123c, type: 2}
   guiStyleName: label
   alignment: 1
-  color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  color: {r: 0.8994485, g: 1, b: 0.015686274, a: 1}
   textStyle: 1
   textStyleColor: {r: 0, g: 0, b: 0, a: 1}
-  defaultUseMessage: (spacebar to interact)
+  defaultUseMessage: Press square button to interact
   useKey: 32
   useButton: Fire2
   enableTouch: 0
@@ -1103,9 +1107,9 @@ MonoBehaviour:
   onSelectedUsable:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1013626945}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1013626949}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1118,9 +1122,9 @@ MonoBehaviour:
   onDeselectedUsable:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1013626945}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1013626949}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1131,6 +1135,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   usablesInRange: []
+--- !u!114 &365436839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365436824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2407f8a49a56c304fa9433f0be4e6bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &391059297
 GameObject:
   m_ObjectHideFlags: 0
@@ -9311,7 +9327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -318, y: -131}
+  m_AnchoredPosition: {x: -381, y: -165}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1013626947
@@ -9334,8 +9350,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 4de85c90bbe61ed4bb3d67de9ab26f64, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9391,7 +9407,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1013626947}
   m_OnClick:
     m_PersistentCalls:
@@ -9401,18 +9417,6 @@ MonoBehaviour:
           Assembly-CSharp-firstpass
         m_MethodName: UseCurrentSelection
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1013626945}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10227,7 +10231,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1539595928
 RectTransform:
@@ -10504,7 +10508,7 @@ GameObject:
   - component: {fileID: 1698571475}
   - component: {fileID: 1698571474}
   m_Layer: 5
-  m_Name: Touch
+  m_Name: TouchArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11780,10 +11784,10 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1539595928}
   - {fileID: 544238923}
   - {fileID: 832222426}
   - {fileID: 1521972484}
-  - {fileID: 1539595928}
   - {fileID: 836792489}
   - {fileID: 365436823}
   - {fileID: 1874020098}

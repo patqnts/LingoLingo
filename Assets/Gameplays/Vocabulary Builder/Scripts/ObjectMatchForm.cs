@@ -124,8 +124,9 @@ public class ObjectMatchForm : MonoBehaviour
 
 
     private IEnumerator CloseThisGame()
-    {
+    {       
         yield return new WaitForSeconds(3f);
+        PixelCrushers.DialogueSystem.Sequencer.Message("CloseGame");
         Destroy(gameObject);
     }
 

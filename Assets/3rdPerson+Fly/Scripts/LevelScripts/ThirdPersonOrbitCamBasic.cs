@@ -27,6 +27,7 @@ public class ThirdPersonOrbitCamBasic : MonoBehaviour
 	private bool isCustomOffset;                                       // Boolean to determine whether or not a custom camera offset is being used.
     public bool useTouchInput = true;
     public RectTransform touchAreaRectTransform;
+	public bool controlEnable;
     // Get the camera horizontal angle.
     public float GetH => angleH;
 
@@ -55,8 +56,15 @@ public class ThirdPersonOrbitCamBasic : MonoBehaviour
 				"It is recommended to set all vertical offset in Pivot Offset.");
 	}
 
-	void Update()
+    public void ToggleTouchCam()
 	{
+		controlEnable = !controlEnable;
+    }
+
+    void Update()
+	{
+		if (!controlEnable) return;
+
         if (useTouchInput && Input.touchCount > 0)
         {
             // Iterate through all touches
