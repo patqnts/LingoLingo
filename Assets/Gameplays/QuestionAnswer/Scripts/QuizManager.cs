@@ -10,61 +10,73 @@ public class QuizManager : MonoBehaviour
 
     public static QuizManager instance;
     public QuestionScriptableObject[] questionScriptableObjects;
-
+    public TextMeshProUGUI timer;
     public TextMeshProUGUI currentQuestion;
+
+    public Transform gameObjectcontainer;
+    public GameObject levelCompleteUI;
+
     public Transform AnswerParent;
     public int currentScore;
     public int maxScore;
-    private int currentQuestionIndex = 0;
-
+    public int currentQuestionIndex = 0;
+    public float gameDuration;
 
     private void Start()
     {
-        instance = this;
-        //GameTimerScript.instance.FinishGameEvent += FinalizeQuiz;
+        GameTimerScript.instance.FinishGameEvent += FinalizeQuiz;
+        instance = this;      
         maxScore = questionScriptableObjects.Length;
-        LoadQuestion();
+        Debug.Log(questionScriptableObjects.Length);
+        LoadQuestion(currentQuestionIndex);
+        GameTimerScript.instance.StartTimer(gameDuration);
+        GameTimerScript.instance.timerText = timer;
     }
     private void OnDestroy()
     {
         GameTimerScript.instance.FinishGameEvent -= FinalizeQuiz;
     }
 
-    public void LoadQuestion()
+    public void LoadQuestion(int Index)
     {
-        if(currentQuestionIndex <= questionScriptableObjects.Length)
+
+        foreach (Transform child in AnswerParent.transform)
         {
-            currentQuestion.text = questionScriptableObjects[currentQuestionIndex].question;
+            Destroy(child.gameObject);
+        }
 
-            int answersCount = 0;
-            foreach (string answer in questionScriptableObjects[currentQuestionIndex].answers)
-            {
-                GameObject questionItem = Instantiate(questionScriptableObjects[answersCount].answerButtonPrefab, AnswerParent);
-                questionItem.GetComponentInChildren<TextMeshProUGUI>().text = answer;
+        currentQuestion.text = questionScriptableObjects[Index].question;
 
-                questionItem.GetComponentInChildren<AnswerButton>().Id = currentQuestionIndex;
+        int answerId = 0;
+        foreach (string answer in questionScriptableObjects[Index].answers)
+        {
+            GameObject questionItem = Instantiate(questionScriptableObjects[Index].answerButtonPrefab, AnswerParent);
+            questionItem.GetComponentInChildren<TextMeshProUGUI>().text = answer;
 
-                questionItem.GetComponent<Button>().onClick.AddListener(() => AnswerHandler(questionItem.GetComponentInChildren<AnswerButton>().Id));
-                //answersCount++;
-                currentQuestionIndex++;
-            }
-        }      
+            questionItem.GetComponentInChildren<AnswerButton>().Id = answerId;
+
+            questionItem.GetComponent<Button>().onClick.AddListener(() => AnswerHandler(questionItem.GetComponentInChildren<AnswerButton>().Id));
+            answerId++;
+        }
+        
     }
 
     public void AnswerHandler(int Id)
     {
-        if(Id == 0)
+        if (Id == 0)
         {
             currentScore++;
         }
 
-        if(currentQuestionIndex <= questionScriptableObjects.Length)
+        currentQuestionIndex++; // Increment the index here
+
+        if (currentQuestionIndex < questionScriptableObjects.Length) // Check if index is within bounds
         {
-            LoadQuestion();
+            LoadQuestion(currentQuestionIndex); // Load the next question
         }
         else
         {
-            FinalizeQuiz();
+            FinalizeQuiz(); // Finalize the quiz if all questions have been answered
         }
     }
 
@@ -78,7 +90,8 @@ public class QuizManager : MonoBehaviour
     public void FinalizeQuiz() 
     {
         GameTimerScript.instance.StopTimer();
-        Debug.Log($"Your score: {currentScore}/{maxScore}");
+        GameObject result = Instantiate(levelCompleteUI, gameObjectcontainer);
+        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {currentScore}/{maxScore}";
         StartCoroutine(CloseThisGame());
     }
 }
