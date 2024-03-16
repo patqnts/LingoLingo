@@ -45,7 +45,7 @@ public class PlayerDataHandler : MonoBehaviour
     {
         int currentScore = modules[moduleIndex].challenges[challengeIndex];
 
-        if (challengeScore >= 0 || challengeScore > currentScore)
+        if (challengeScore > currentScore)
         {
             modules[moduleIndex].challenges[challengeIndex] = challengeScore;
         }
