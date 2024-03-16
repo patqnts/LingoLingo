@@ -16,6 +16,8 @@ public class SentenceFormGame : MonoBehaviour
     public int currentScore;
     public int maxScore;
     public float gameDuration;
+    public int module;
+    public int challengeIndex;
     private void Start()
     {
         GameTimerScript.instance.FinishGameEvent += FinalizeForm;
@@ -32,6 +34,7 @@ public class SentenceFormGame : MonoBehaviour
         GameTimerScript.instance.StopTimer();
         GameObject result = Instantiate(levelCompleteUI, gameObjectcontainer);
         result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {currentScore}/{maxScore}";
+        PlayerDataHandler.instance.SetModuleValue(module, challengeIndex, currentScore);
         StartCoroutine(CloseThisGame());
     }
 

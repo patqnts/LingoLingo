@@ -21,6 +21,8 @@ public class QuizManager : MonoBehaviour
     public int maxScore;
     public int currentQuestionIndex = 0;
     public float gameDuration;
+    public int module;
+    public int challengeIndex;
 
     private void Start()
     {
@@ -92,6 +94,7 @@ public class QuizManager : MonoBehaviour
         GameTimerScript.instance.StopTimer();
         GameObject result = Instantiate(levelCompleteUI, gameObjectcontainer);
         result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {currentScore}/{maxScore}";
+        PlayerDataHandler.instance.SetModuleValue(module, challengeIndex, currentScore);
         StartCoroutine(CloseThisGame());
     }
 }

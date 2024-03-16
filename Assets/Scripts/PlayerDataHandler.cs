@@ -5,25 +5,10 @@ public class PlayerDataHandler : MonoBehaviour
 {
     public static PlayerDataHandler instance;
     private GameObject player;
+    public int characterModelIndex;
+    public int coins;
 
-    [Header("Module1")]
-    public int[] module1_challenge;
-
-    [Header("Module2")]
-    public int[] module2_challenge;
-
-    [Header("Module3")]
-    public int[] module3_challenge1;
-
-    [Header("Module4")]
-    public int[] module4_challenge1;
-
-    [Header("Module5")]
-    public int[] module5_challenge1;
-
-    [Header("Module6")]
-    public int[] module6_challenge1;
-
+    public Module[] modules;
     private string dataFilePath;
 
 
@@ -52,18 +37,24 @@ public class PlayerDataHandler : MonoBehaviour
         {
             Debug.LogError("Player GameObject not found in the scene.");
         }
+
+        LoadModuleChallengesFromJson();
     }
 
-    public void SetModule1Value(int challenge, int value)
+    public void SetModuleValue(int moduleIndex, int challengeIndex, int challengeScore)
     {
-        if (challenge >= 0 && challenge < module1_challenge.Length)
+        int currentScore = modules[moduleIndex].challenges[challengeIndex];
+
+        if (challengeScore >= 0 || challengeScore > currentScore)
         {
-            module1_challenge[challenge] = value;
+            modules[moduleIndex].challenges[challengeIndex] = challengeScore;
         }
         else
         {
             Debug.LogError("Invalid challenge index for Module 1.");
         }
+
+        SaveModuleChallengesToJson();
     }
 
     // Save all module_challenge arrays to a JSON file in the persistent data path
@@ -71,12 +62,9 @@ public class PlayerDataHandler : MonoBehaviour
     {
         PlayerData data = new PlayerData
         {
-            module1_challenge = this.module1_challenge,
-            module2_challenge = this.module2_challenge,
-            module3_challenge1 = this.module3_challenge1,
-            module4_challenge1 = this.module4_challenge1,
-            module5_challenge1 = this.module5_challenge1,
-            module6_challenge1 = this.module6_challenge1
+            characterModelIndex = this.coins,
+            coins = this.coins,
+            modules = this.modules
         };
 
         string jsonData = JsonUtility.ToJson(data);
@@ -93,12 +81,9 @@ public class PlayerDataHandler : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(jsonData);
 
             // Assign loaded values to module_challenge arrays
-            this.module1_challenge = data.module1_challenge;
-            this.module2_challenge = data.module2_challenge;
-            this.module3_challenge1 = data.module3_challenge1;
-            this.module4_challenge1 = data.module4_challenge1;
-            this.module5_challenge1 = data.module5_challenge1;
-            this.module6_challenge1 = data.module6_challenge1;
+            this.characterModelIndex = data.characterModelIndex;
+            this.coins = data.coins;
+            this.modules = data.modules;
 
             Debug.Log("Module challenges loaded from: " + dataFilePath);
         }
@@ -111,11 +96,17 @@ public class PlayerDataHandler : MonoBehaviour
     [System.Serializable]
     public class PlayerData
     {
-        public int[] module1_challenge;
-        public int[] module2_challenge;
-        public int[] module3_challenge1;
-        public int[] module4_challenge1;
-        public int[] module5_challenge1;
-        public int[] module6_challenge1;
+        public int characterModelIndex;
+        public int coins;
+
+        public Module[] modules;
+    }
+
+    [System.Serializable]
+    public class Module
+    {
+        public int Id;
+
+        public int[] challenges;
     }
 }

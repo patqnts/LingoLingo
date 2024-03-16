@@ -17,6 +17,8 @@ public class ObjectMatchForm : MonoBehaviour
     public GameObject levelCompleteUI;
     public TextMeshProUGUI timer;
     public float gameDuration;
+    public int module;
+    public int challengeIndex;
     private int points = 0;
     private int maxPoints = 0;
     // Start is called before the first frame update
@@ -119,6 +121,7 @@ public class ObjectMatchForm : MonoBehaviour
         Debug.Log($"Result: {points}/{maxPoints}");
         GameObject result = Instantiate(levelCompleteUI,gameObjectcontainer);
         result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {points}/{maxPoints}";
+        PlayerDataHandler.instance.SetModuleValue(module, challengeIndex, points);
         StartCoroutine(CloseThisGame());
     }
 

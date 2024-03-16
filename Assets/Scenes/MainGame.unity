@@ -1919,7 +1919,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 150
+  far clip plane: 80
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -2118,7 +2118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98297244
+      value: 0.9283112
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2126,7 +2126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.18375325
+      value: 0.37180427
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2138,7 +2138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 21.177
+      value: -676.346
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -13394,12 +13394,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e016f83d0bd521469dab39c1eceeb65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  module1_challenge: 
-  module2_challenge: 
-  module3_challenge1: 
-  module4_challenge1: 
-  module5_challenge1: 
-  module6_challenge1: 
+  characterModelIndex: 0
+  coins: 0
+  modules:
+  - Id: 0
+    challenges: 
 --- !u!4 &1874653697
 Transform:
   m_ObjectHideFlags: 0

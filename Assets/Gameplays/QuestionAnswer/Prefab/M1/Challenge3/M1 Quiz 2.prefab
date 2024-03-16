@@ -522,6 +522,8 @@ MonoBehaviour:
   maxScore: 0
   currentQuestionIndex: 0
   gameDuration: 30
+  module: 0
+  challengeIndex: 2
 --- !u!1 &3092369928409357323
 GameObject:
   m_ObjectHideFlags: 0
