@@ -11,7 +11,7 @@ public class QuizManager : MonoBehaviour
     public static QuizManager instance;
     public QuestionScriptableObject[] questionScriptableObjects;
     public TextMeshProUGUI timer;
-    public TextMeshProUGUI currentQuestion;
+    public Text currentQuestion;
 
     public Transform gameObjectcontainer;
     public GameObject levelCompleteUI;
