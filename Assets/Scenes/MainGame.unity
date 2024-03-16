@@ -2122,7 +2122,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 632008230}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1015187531146012, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_IsActive
@@ -2162,15 +2162,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.94
+      value: -35.73372
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.8
+      value: 19.330166
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -110.48
+      value: -86.9323
       objectReference: {fileID: 0}
     - target: {fileID: 4974079367605988, guid: f7988944762557542877880bd717822e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2352,18 +2352,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1539595924}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 248542350}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2870,7 +2858,6 @@ Transform:
   - {fileID: 1563401817}
   - {fileID: 725021626}
   - {fileID: 1874020100}
-  - {fileID: 365436825}
   - {fileID: 222193052}
   - {fileID: 199966729}
   - {fileID: 1609254611}
@@ -14426,3 +14413,4 @@ SceneRoots:
   - {fileID: 1467308525}
   - {fileID: 1874653697}
   - {fileID: 55597286}
+  - {fileID: 365436823}

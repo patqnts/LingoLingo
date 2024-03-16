@@ -46,6 +46,7 @@ public class BasicBehaviour : MonoBehaviour
 
 	public FixedJoystick joystick;
 	public bool useJoystick;
+
     void Awake ()
 	{
 		// Set up the references.
