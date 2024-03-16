@@ -11,4 +11,10 @@ public class PlayAudio : MonoBehaviour
         audioSource.clip = clips;
         audioSource.Play();
     }
+
+    public void CloseConsVow()
+    {
+        PixelCrushers.DialogueSystem.Sequencer.Message("CloseGame");
+        Destroy(transform.parent.gameObject);
+    }
 }

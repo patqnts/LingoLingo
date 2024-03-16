@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class ModulesHandler : MonoBehaviour
         Instance = this;
     }
 
+    public GameObject ConsVows;
 
     [Header("Module 1")]
     public GameObject[] challenges1;
@@ -24,6 +26,11 @@ public class ModulesHandler : MonoBehaviour
     public GameObject[] challenges5;
     [Header("Module 6")]
     public GameObject[] challenges6;
+
+    public void ConsVowsShow()
+    {
+        currentGame = Instantiate(ConsVows, this.transform);
+    }
 
     public void Module1(int index)
     {
