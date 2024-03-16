@@ -7,7 +7,7 @@ public class PlayerDataHandler : MonoBehaviour
     private GameObject player;
     public int characterModelIndex;
     public int coins;
-
+    public GameObject[] CharacterModels;
     public Module[] modules;
     private string dataFilePath;
 
@@ -62,7 +62,7 @@ public class PlayerDataHandler : MonoBehaviour
     {
         PlayerData data = new PlayerData
         {
-            characterModelIndex = this.coins,
+            characterModelIndex = this.characterModelIndex,
             coins = this.coins,
             modules = this.modules
         };
@@ -85,12 +85,40 @@ public class PlayerDataHandler : MonoBehaviour
             this.coins = data.coins;
             this.modules = data.modules;
 
+            SetCharacterModelIndex(this.characterModelIndex);
             Debug.Log("Module challenges loaded from: " + dataFilePath);
         }
         else
         {
             Debug.LogError("File not found: " + dataFilePath);
         }
+
+       
+    }
+
+    public void CharacterScroll()
+    {
+        
+
+        if(characterModelIndex <= CharacterModels.Length)
+        {
+            characterModelIndex++;
+
+            if (characterModelIndex == CharacterModels.Length)
+            {
+                characterModelIndex = 0;
+            }
+            SetCharacterModelIndex(characterModelIndex);
+        }
+    }
+    public void SetCharacterModelIndex(int i)
+    {
+        foreach(GameObject obj in CharacterModels)
+        {
+            obj.SetActive(false);
+        }
+
+        CharacterModels[i].SetActive(true);
     }
 
     [System.Serializable]
