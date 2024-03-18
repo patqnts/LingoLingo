@@ -25,7 +25,7 @@ public class QuizManager : MonoBehaviour
     public int challengeIndex;
 
     private void Start()
-    {
+    {//
         GameTimerScript.instance.FinishGameEvent += FinalizeQuiz;
         instance = this;      
         maxScore = questionScriptableObjects.Length;
