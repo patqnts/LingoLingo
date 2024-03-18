@@ -9,6 +9,7 @@ public class PlayerDataHandler : MonoBehaviour
     public int coins;
     public GameObject[] CharacterModels;
     public Module[] modules;
+    public int[] ChallengeMaxScore;
     private string dataFilePath;
 
 
