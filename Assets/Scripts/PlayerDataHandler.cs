@@ -51,7 +51,7 @@ public class PlayerDataHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Invalid challenge index for Module 1.");
+            Debug.LogError("Score is not higher.");
         }
 
         SaveModuleChallengesToJson();
