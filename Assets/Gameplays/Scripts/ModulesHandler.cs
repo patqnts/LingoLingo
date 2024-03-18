@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,29 +12,54 @@ public class ModulesHandler : MonoBehaviour
         Instance = this;
     }
 
+    public GameObject ConsVows;
 
-    [Header("Word Match")]
-    public GameObject wordMatch;
-    [Header("Quiz")]
-    public GameObject quizMultipleChoice;
-    [Header("Sentence Form Game")]
-    public GameObject sentenceForm;
-    [Header("Quiz3")]
-    public GameObject quiz3;
+    [Header("Module 1")]
+    public GameObject[] challenges1;
+    [Header("Module 2")]
+    public GameObject[] challenges2;
+    [Header("Module 3")]
+    public GameObject[] challenges3;
+    [Header("Module 4")]
+    public GameObject[] challenges4;
+    [Header("Module 5")]
+    public GameObject[] challenges5;
+    [Header("Module 6")]
+    public GameObject[] challenges6;
 
-    public void WordMatch()
+    public void ConsVowsShow()
     {
-        currentGame = Instantiate(wordMatch, this.transform);
+        currentGame = Instantiate(ConsVows, this.transform);
     }
 
-    public void Quiz1()
+    public void Module1(int index)
     {
-        currentGame = Instantiate(quizMultipleChoice, this.transform);
+        currentGame = Instantiate(challenges1[index], this.transform);
     }
 
-    public void SentenceFormGame()
+    public void Module2(int index)
     {
-        currentGame = Instantiate(sentenceForm, this.transform);
+        currentGame = Instantiate(challenges2[index], this.transform);
+    }
+
+    public void Module3(int index)
+    {
+        currentGame = Instantiate(challenges3[index], this.transform);
+    }
+
+    public void Module4(int index)
+    {
+        currentGame = Instantiate(challenges4[index], this.transform);
+    }
+
+    public void Module5(int index)
+    {
+        currentGame = Instantiate(challenges5[index], this.transform);
+    }
+
+    public void Module6(int index)
+    {
+        currentGame = Instantiate(challenges6[index], this.transform);
     }
 
 }

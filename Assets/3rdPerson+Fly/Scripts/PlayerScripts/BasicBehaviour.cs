@@ -46,6 +46,7 @@ public class BasicBehaviour : MonoBehaviour
 
 	public FixedJoystick joystick;
 	public bool useJoystick;
+
     void Awake ()
 	{
 		// Set up the references.
@@ -62,6 +63,16 @@ public class BasicBehaviour : MonoBehaviour
 		colExtents = GetComponent<Collider>().bounds.extents;
 	}
 
+	public void FreezePosition()
+	{
+		rBody.constraints = RigidbodyConstraints.FreezePosition;
+	}
+
+	public void UnFreezePosition()
+	{
+		rBody.constraints = RigidbodyConstraints.FreezeRotation;
+
+    }
 	void Update()
 	{
         if (useJoystick)

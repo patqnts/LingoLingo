@@ -17,11 +17,14 @@ public class ObjectMatchForm : MonoBehaviour
     public GameObject levelCompleteUI;
     public TextMeshProUGUI timer;
     public float gameDuration;
+    public int module;
+    public int challengeIndex;
     private int points = 0;
     private int maxPoints = 0;
     // Start is called before the first frame update
     private List<MatchItem> matches = new List<MatchItem>();
     private List<MatchItem> rightItems = new List<MatchItem>();
+    public int itemsCount;
 
 
     void Start()
@@ -38,26 +41,43 @@ public class ObjectMatchForm : MonoBehaviour
         int intName = 0;
         foreach(string left in MatchScriptableObject.Lefts)
         {
-            intName++;
-            GameObject item  = Instantiate(MatchScriptableObject.leftGameObject, Left);
+            if(intName < itemsCount)
+            {
+                intName++;
+                GameObject item = Instantiate(MatchScriptableObject.leftGameObject, Left);
 
-            item.GetComponentInChildren<TextMeshProUGUI>().text = left;
-            MatchItem leftitem = item.GetComponent<MatchItem>();
+                item.GetComponentInChildren<TextMeshProUGUI>().text = left;
+                MatchItem leftitem = item.GetComponent<MatchItem>();
 
-            leftitem.itemName = intName.ToString();
-            matches.Add(leftitem);
+                leftitem.itemName = intName.ToString();
+                matches.Add(leftitem);
+            }         
         }
         maxPoints = intName;
         intName = 0;
+        
+        int audioIndex = 0;
         foreach (string right in MatchScriptableObject.Rights)
         {
-            intName++;
-            GameObject item = Instantiate(MatchScriptableObject.rightGameObject, Right);
-            MatchItem rightItem = item.GetComponent<MatchItem>();
-            item.GetComponentInChildren<TextMeshProUGUI>().text = right;
-            rightItem.itemName = intName.ToString();
-            rightItems.Add(rightItem);
+            if(intName < itemsCount)
+            {
+
+                intName++;
+                GameObject item = Instantiate(MatchScriptableObject.rightGameObject, Right);
+                MatchItem rightItem = item.GetComponent<MatchItem>();
+                item.GetComponentInChildren<TextMeshProUGUI>().text = right;
+                rightItem.itemName = intName.ToString();
+
+                if(MatchScriptableObject.audioClips.Count > 0)
+                {
+                    item.GetComponentInChildren<PlayAudio>().consVowsClip = MatchScriptableObject.audioClips[audioIndex];
+                    audioIndex++;
+                }
+
+                rightItems.Add(rightItem);
+            }
         }
+
 
         RandomizeOrder();
     }
@@ -119,6 +139,7 @@ public class ObjectMatchForm : MonoBehaviour
         Debug.Log($"Result: {points}/{maxPoints}");
         GameObject result = Instantiate(levelCompleteUI,gameObjectcontainer);
         result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {points}/{maxPoints}";
+        PlayerDataHandler.instance.SetModuleValue(module, challengeIndex, points);
         StartCoroutine(CloseThisGame());
     }
 

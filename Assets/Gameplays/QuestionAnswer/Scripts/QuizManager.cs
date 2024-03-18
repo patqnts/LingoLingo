@@ -11,7 +11,7 @@ public class QuizManager : MonoBehaviour
     public static QuizManager instance;
     public QuestionScriptableObject[] questionScriptableObjects;
     public TextMeshProUGUI timer;
-    public TextMeshProUGUI currentQuestion;
+    public Text currentQuestion;
 
     public Transform gameObjectcontainer;
     public GameObject levelCompleteUI;
@@ -21,6 +21,8 @@ public class QuizManager : MonoBehaviour
     public int maxScore;
     public int currentQuestionIndex = 0;
     public float gameDuration;
+    public int module;
+    public int challengeIndex;
 
     private void Start()
     {
@@ -58,8 +60,33 @@ public class QuizManager : MonoBehaviour
             questionItem.GetComponent<Button>().onClick.AddListener(() => AnswerHandler(questionItem.GetComponentInChildren<AnswerButton>().Id));
             answerId++;
         }
-        
+        RandomizeOrder();
     }
+    public void RandomizeOrder()
+    {
+        // Generate random order of indices
+        List<int> indices = new List<int>();
+        for (int i = 0; i < AnswerParent.childCount; i++)
+        {
+            indices.Add(i);
+        }
+
+        // Shuffle indices using Fisher-Yates shuffle algorithm
+        for (int i = 0; i < indices.Count; i++)
+        {
+            int randomIndex = Random.Range(i, indices.Count);
+            int temp = indices[i];
+            indices[i] = indices[randomIndex];
+            indices[randomIndex] = temp;
+        }
+
+        // Rearrange child objects based on shuffled indices
+        for (int i = 0; i < indices.Count; i++)
+        {
+            AnswerParent.GetChild(i).SetSiblingIndex(indices[i]);
+        }
+    }
+
 
     public void AnswerHandler(int Id)
     {
@@ -92,6 +119,7 @@ public class QuizManager : MonoBehaviour
         GameTimerScript.instance.StopTimer();
         GameObject result = Instantiate(levelCompleteUI, gameObjectcontainer);
         result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {currentScore}/{maxScore}";
+        PlayerDataHandler.instance.SetModuleValue(module, challengeIndex, currentScore);
         StartCoroutine(CloseThisGame());
     }
 }
