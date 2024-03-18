@@ -9,8 +9,8 @@ public class GameProgressScript : MonoBehaviour
 
     private void Start()
     {
-        InitializeProgressBars();
-        HandleZeroPercent();
+        PlayerDataProgress();
+        
     }
 
 
@@ -32,7 +32,22 @@ public class GameProgressScript : MonoBehaviour
     public void PlayerDataProgress()
     {
         int currentIndex = 0;
+        foreach (PlayerDataHandler.Module module in PlayerDataHandler.instance.modules)
+        {
+            int sum = module.challenges[0] + module.challenges[1] + module.challenges[2];
+            int maxScore = PlayerDataHandler.instance.ChallengeMaxScore[currentIndex];
+            if(sum <= 1)
+            {
+                percentage[currentIndex] = 0;
+            }
+            else
+            {
+                percentage[currentIndex] = Mathf.RoundToInt((float)sum / maxScore * 100);
+            }           
+            currentIndex++;
+        }
 
+        InitializeProgressBars();
     }
     private void InitializeProgressBars()
     {
@@ -40,6 +55,8 @@ public class GameProgressScript : MonoBehaviour
         {
             progressBar.onValueChanged.AddListener(delegate { OnValueChanged(progressBar); });
         }
+
+        HandleZeroPercent();
     }
 
     private void OnValueChanged(ProgressBar progressBar)
@@ -66,8 +83,7 @@ public class GameProgressScript : MonoBehaviour
             progressBar.currentPercent = 0f; // Reset progress to 0 when script is enabled
 
         }
-        HandleZeroPercent();
-        InitializeProgressBars();
+        PlayerDataProgress();
     }
 
     private void OnDisable()
