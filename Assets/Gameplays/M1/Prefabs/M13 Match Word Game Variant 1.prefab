@@ -14,24 +14,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1898205589524461174, guid: fbbbe6a93685ef44cbd3d83cb22e4a04, type: 3}
       propertyPath: m_Name
-      value: M1 Match Word Game Variant
+      value: M13 Match Word Game Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 1898205589524461174, guid: fbbbe6a93685ef44cbd3d83cb22e4a04, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4085462952701338092, guid: fbbbe6a93685ef44cbd3d83cb22e4a04, type: 3}
       propertyPath: m_CellSize.y
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7380911100213639571, guid: fbbbe6a93685ef44cbd3d83cb22e4a04, type: 3}
-      propertyPath: challengeIndex
+      propertyPath: module
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380911100213639571, guid: fbbbe6a93685ef44cbd3d83cb22e4a04, type: 3}
+      propertyPath: itemsCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380911100213639571, guid: fbbbe6a93685ef44cbd3d83cb22e4a04, type: 3}
+      propertyPath: challengeIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7380911100213639571, guid: fbbbe6a93685ef44cbd3d83cb22e4a04, type: 3}
       propertyPath: MatchScriptableObject
       value: 
-      objectReference: {fileID: 11400000, guid: 4fda9e4cde7873546a7dd7638d4e55b7, type: 2}
+      objectReference: {fileID: 11400000, guid: 13ccbd78f49a46b44971642e50e29a01, type: 2}
     - target: {fileID: 8472701352665307943, guid: fbbbe6a93685ef44cbd3d83cb22e4a04, type: 3}
       propertyPath: m_Pivot.x
       value: 0

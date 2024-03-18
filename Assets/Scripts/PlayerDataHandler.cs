@@ -90,10 +90,43 @@ public class PlayerDataHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogError("File not found: " + dataFilePath);
+            CreateNewSaveFile();
         }
 
        
+    }
+
+
+    private void CreateNewSaveFile()
+    {
+        // Initialize modules array with default challenges
+        modules = new Module[6]; // Change numberOfModules to the actual number of modules
+        for (int i = 0; i < modules.Length; i++)
+        {
+            modules[i] = new Module
+            {
+                Id = i,
+                challenges = new int[3] // Change numberOfChallenges to the actual number of challenges per module
+            };
+            for (int j = 0; j < modules[i].challenges.Length; j++)
+            {
+                modules[i].challenges[j] = 0; // Set all challenges to 0 by default
+            }
+        }
+
+        // Create new PlayerData instance with default values
+        PlayerData newData = new PlayerData
+        {
+            characterModelIndex = 0, // Assuming the default character model index is 0
+            coins = 0, // Assuming the default number of coins is 0
+            modules = modules
+        };
+
+        // Serialize and save the new PlayerData instance to JSON
+        string jsonData = JsonUtility.ToJson(newData);
+        File.WriteAllText(dataFilePath, jsonData);
+
+        Debug.Log("New save file created with default values at: " + dataFilePath);
     }
 
     public void CharacterScroll()
@@ -109,6 +142,7 @@ public class PlayerDataHandler : MonoBehaviour
                 characterModelIndex = 0;
             }
             SetCharacterModelIndex(characterModelIndex);
+            SaveModuleChallengesToJson();
         }
     }
     public void SetCharacterModelIndex(int i)

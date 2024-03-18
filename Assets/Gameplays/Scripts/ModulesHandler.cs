@@ -39,27 +39,27 @@ public class ModulesHandler : MonoBehaviour
 
     public void Module2(int index)
     {
-        currentGame = Instantiate(challenges1[index], this.transform);
+        currentGame = Instantiate(challenges2[index], this.transform);
     }
 
     public void Module3(int index)
     {
-        currentGame = Instantiate(challenges1[index], this.transform);
+        currentGame = Instantiate(challenges3[index], this.transform);
     }
 
     public void Module4(int index)
     {
-        currentGame = Instantiate(challenges1[index], this.transform);
+        currentGame = Instantiate(challenges4[index], this.transform);
     }
 
     public void Module5(int index)
     {
-        currentGame = Instantiate(challenges1[index], this.transform);
+        currentGame = Instantiate(challenges5[index], this.transform);
     }
 
     public void Module6(int index)
     {
-        currentGame = Instantiate(challenges1[index], this.transform);
+        currentGame = Instantiate(challenges6[index], this.transform);
     }
 
 }
