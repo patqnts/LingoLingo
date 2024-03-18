@@ -11,5 +11,6 @@ public class MatchScriptableObject : ScriptableObject
 
     public List<string> Lefts;
     public List<string> Rights;
+    public List<AudioClip> audioClips;
     
 }

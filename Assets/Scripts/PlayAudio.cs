@@ -6,9 +6,16 @@ public class PlayAudio : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource audioSource;
+    public AudioClip consVowsClip;
    public void PlayAudioMethod(AudioClip clips)
     {
         audioSource.clip = clips;
+        audioSource.Play();
+    }
+
+    public void PlayConsVows()
+    {
+        audioSource.clip = consVowsClip;
         audioSource.Play();
     }
 
