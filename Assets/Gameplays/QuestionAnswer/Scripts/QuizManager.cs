@@ -60,8 +60,33 @@ public class QuizManager : MonoBehaviour
             questionItem.GetComponent<Button>().onClick.AddListener(() => AnswerHandler(questionItem.GetComponentInChildren<AnswerButton>().Id));
             answerId++;
         }
-        
+        RandomizeOrder();
     }
+    public void RandomizeOrder()
+    {
+        // Generate random order of indices
+        List<int> indices = new List<int>();
+        for (int i = 0; i < AnswerParent.childCount; i++)
+        {
+            indices.Add(i);
+        }
+
+        // Shuffle indices using Fisher-Yates shuffle algorithm
+        for (int i = 0; i < indices.Count; i++)
+        {
+            int randomIndex = Random.Range(i, indices.Count);
+            int temp = indices[i];
+            indices[i] = indices[randomIndex];
+            indices[randomIndex] = temp;
+        }
+
+        // Rearrange child objects based on shuffled indices
+        for (int i = 0; i < indices.Count; i++)
+        {
+            AnswerParent.GetChild(i).SetSiblingIndex(indices[i]);
+        }
+    }
+
 
     public void AnswerHandler(int Id)
     {
