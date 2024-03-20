@@ -62,7 +62,9 @@ public class SentenceFormGame : MonoBehaviour
                 sentenceLine.Add(line);
                 sentenceIndex++;
             }
+            Debug.Log("Randomizing word order...");
             RandomizeWordOrder();
+            Debug.Log("Word order randomized.");
         }
         else
         {

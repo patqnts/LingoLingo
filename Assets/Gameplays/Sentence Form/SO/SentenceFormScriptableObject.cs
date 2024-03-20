@@ -7,5 +7,6 @@ public class SentenceFormScriptableObject : ScriptableObject
 {
     public GameObject Word;
     public GameObject SentenceLine;
+    public string sentenceEnglish;
     public string[] words;
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Question1 1
   m_EditorClassIdentifier: 
   answerButtonPrefab: {fileID: 2524743207634652419, guid: 2c9c0bba557649c448d899b6b6e7b92e, type: 3}
-  question: 'How do you ask "Excuse me" in Pinyin? '
+  question: 'What is the Pinyin translation for the number "8"? '
   answers:
-  - " (B\xF9 h\u01CEo y\xECsi)"
-  - " (Du\xECbuq\u01D0)"
-  - " (Xi\xE8xi\xE8)"
-  - " (Z\xE0iji\xE0n)"
+  - "b\u0101 "
+  - "li\xF9 "
+  - "j\u01D0n "
+  - "sh\xED"
