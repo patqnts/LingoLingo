@@ -8,7 +8,7 @@ public class SentenceFormGame : MonoBehaviour
     public static SentenceFormGame instance;
     public GameObject levelCompleteUI;
     public Transform gameObjectcontainer;
-    public SentenceFormScriptableObject scriptableObject;
+    public SentenceFormScriptableObject[] scriptableObject;
     public Transform sentenceContainer;
     public Transform wordsContainer;
     private List<SentenceLine> sentenceLine;
@@ -18,6 +18,7 @@ public class SentenceFormGame : MonoBehaviour
     public float gameDuration;
     public int module;
     public int challengeIndex;
+    private int currentChallengeIndex = 0;
     private void Start()
     {
         GameTimerScript.instance.FinishGameEvent += FinalizeForm;
@@ -40,41 +41,97 @@ public class SentenceFormGame : MonoBehaviour
 
     public void LoadChallenge()
     {
-        int sentenceIndex = 1;
-        foreach(string word in scriptableObject.words)
+        if (currentChallengeIndex < scriptableObject.Length) // Check if there are more challenges
         {
-            GameObject sentence = Instantiate(scriptableObject.SentenceLine, sentenceContainer);
-            SentenceLine line = sentence.GetComponent<SentenceLine>();
+            SentenceFormScriptableObject currentScriptableObject = scriptableObject[currentChallengeIndex];
 
-            sentence.name = sentenceIndex.ToString();
+            int sentenceIndex = 1;
+            foreach (string word in currentScriptableObject.words)
+            {
+                GameObject sentence = Instantiate(currentScriptableObject.SentenceLine, sentenceContainer);
+                SentenceLine line = sentence.GetComponent<SentenceLine>();
 
-            line.SentenceId = sentenceIndex;
-          
+                sentence.name = sentenceIndex.ToString();
 
-            GameObject wordObject = Instantiate(scriptableObject.Word, wordsContainer);
-            wordObject.GetComponentInChildren<TextMeshProUGUI>().text = word;
-            wordObject.GetComponent<DraggableWord>().Id = sentenceIndex;
+                line.SentenceId = sentenceIndex;
 
-            sentenceLine.Add(line);
-            sentenceIndex++;
+                GameObject wordObject = Instantiate(currentScriptableObject.Word, wordsContainer);
+                wordObject.GetComponentInChildren<TextMeshProUGUI>().text = word;
+                wordObject.GetComponent<DraggableWord>().Id = sentenceIndex;
+
+                sentenceLine.Add(line);
+                sentenceIndex++;
+            }
+            RandomizeWordOrder();
+        }
+        else
+        {
+            FinalizeForm(); // Finalize if there are no more challenges
         }
     }
+    public void RandomizeWordOrder()
+    {
+        // Generate random order of indices
+        List<int> indices = new List<int>();
+        for (int i = 0; i < wordsContainer.childCount; i++)
+        {
+            indices.Add(i);
+        }
 
+        // Shuffle indices using Fisher-Yates shuffle algorithm
+        for (int i = 0; i < indices.Count; i++)
+        {
+            int randomIndex = Random.Range(i, indices.Count);
+            int temp = indices[i];
+            indices[i] = indices[randomIndex];
+            indices[randomIndex] = temp;
+        }
+
+        // Rearrange child objects based on shuffled indices
+        for (int i = 0; i < indices.Count; i++)
+        {
+            wordsContainer.GetChild(i).SetSiblingIndex(indices[i]);
+        }
+    }
     public void AnswerHandler()
     {
-        maxScore = sentenceLine.Count;
+        maxScore++; // Increment max score for each challenge
+        bool isCorrectOrder = true;
+
         foreach (SentenceLine obj in sentenceLine)
         {
-            if (obj.Id == obj.SentenceId)
+            if (obj.Id != obj.SentenceId)
             {
-                currentScore++;
+                isCorrectOrder = false;
+                break;
             }
         }
 
-        FinalizeForm(); // Finalize the quiz if all questions have been answered
-        
+        if (isCorrectOrder)
+        {
+            currentScore++; // Increment current score if order is correct
+        }
+
+        currentChallengeIndex++; // Move to the next challenge
+
+        ClearPreviousChallenge(); // Clear previous challenge data
+        LoadChallenge(); // Load the next challenge
     }
 
+    private void ClearPreviousChallenge()
+    {
+        foreach (Transform child in sentenceContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in wordsContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        sentenceLine.Clear();
+    }
     private void OnDestroy()
     {
         GameTimerScript.instance.FinishGameEvent -= FinalizeForm;
