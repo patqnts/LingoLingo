@@ -15,5 +15,5 @@ MonoBehaviour:
   answerButtonPrefab: {fileID: 2524743207634652419, guid: 2c9c0bba557649c448d899b6b6e7b92e, type: 3}
   question: "What does \"y\u012Bsh\u0113ng\" mean? "
   answers:
-  - Headache
   - Doctor
+  - Headache

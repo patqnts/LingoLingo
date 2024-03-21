@@ -16,7 +16,7 @@ MonoBehaviour:
   question: "What is the English translation for \"Du\u014D xi\u016Bx\xED, du\u014D
     h\u0113 shu\u01D0\u201D? "
   answers:
-  - Make a phone call
   - Rest more, drink more water
+  - Make a phone call
   - Pay attention to rest
   - Sore throat

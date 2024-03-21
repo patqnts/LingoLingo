@@ -15,5 +15,5 @@ MonoBehaviour:
   answerButtonPrefab: {fileID: 2524743207634652419, guid: 2c9c0bba557649c448d899b6b6e7b92e, type: 3}
   question: "Choose the correct translation for \"t\xF3ut\xF2ng.\" "
   answers:
-  - Fever
   - Headache
+  - Fever
