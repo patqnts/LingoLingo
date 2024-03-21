@@ -1794,13 +1794,19 @@ MonoBehaviour:
       - originConversationID: 4
         originDialogueID: 0
         destinationConversationID: 4
-        destinationDialogueID: 1
+        destinationDialogueID: 20
         isConnector: 0
         priority: 2
       - originConversationID: 4
         originDialogueID: 0
         destinationConversationID: 4
-        destinationDialogueID: 20
+        destinationDialogueID: 28
+        isConnector: 0
+        priority: 2
+      - originConversationID: 4
+        originDialogueID: 0
+        destinationConversationID: 4
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1810,8 +1816,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1451.9474
-        y: 70.690796
+        x: 984.79346
+        y: 96.77774
         width: 160
         height: 30
     - id: 1
@@ -1858,7 +1864,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: Variable["ModuleTwoPercentage"] < 5
+      conditionsString: Variable["ModuleOnePercentage"] >= 70
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2953,15 +2959,16 @@ MonoBehaviour:
         destinationDialogueID: 27
         isConnector: 0
         priority: 2
-      conditionsString: Variable["ModuleTwoPercentage"] > 5
+      conditionsString: Variable["ModuleTwoPercentage"] > 5 and (Variable["ModuleOnePercentage"]
+        >= 70)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1261.091
-        y: 494.64673
+        x: 1181.3442
+        y: 388.31766
         width: 160
         height: 30
     - id: 21
@@ -3347,9 +3354,58 @@ MonoBehaviour:
         y: 304.38406
         width: 160
         height: 30
+    - id: 28
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Make sure to pass Module 1 first.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["ModuleOnePercentage"] < 70
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1219.3389
+        y: 175.86867
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 237.87007, y: 0}
-    canvasZoom: 0.37000027
+    canvasScrollPosition: {x: 565.76324, y: 0}
+    canvasZoom: 0.7900001
   - id: 5
     fields:
     - title: Title
@@ -5479,7 +5535,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 9.996216, y: 0}
     canvasZoom: 0.7900003
   - id: 9
     fields:
