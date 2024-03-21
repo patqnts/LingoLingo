@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541e36af945871e41bfc86d6eb8acf34, type: 3}
+  m_Name: Module 5 3
+  m_EditorClassIdentifier: 
+  leftGameObject: {fileID: 6339846399392784271, guid: aad9139bd6b4d504c8ff5e1b7630968c, type: 3}
+  rightGameObject: {fileID: 6339846399392784271, guid: 37370dadf7e40b94fbd8456d87445d3e, type: 3}
+  Lefts:
+  - I come from the Philippines
+  - I come from China
+  - Where are you from
+  - Welcome to China
+  - My parents are in the Philippines
+  Rights:
+  - "W\u01D2 l\xE1iz\xEC F\u0113il\u01DCb\u012Bn. "
+  - "W\u01D2 l\xE1iz\xEC Zh\u014Dnggu\xF3 "
+  - "N\u01D0 l\xE1iz\xEC n\u01CEl\u01D0? "
+  - "Hu\u0101ny\xEDng l\xE1i Zh\u014Dnggu\xF3 w\xE1n! "
+  - "W\u01D2 de b\xE0ba m\u0101m\u0101 z\xE0i F\u0113il\u01DCb\u012Bn "
+  audioClips: []
