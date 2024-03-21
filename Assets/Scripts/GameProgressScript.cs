@@ -9,8 +9,7 @@ public class GameProgressScript : MonoBehaviour
 
     private void Start()
     {
-        PlayerDataProgress();
-        
+        PlayerDataProgress();       
     }
 
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using PixelCrushers.DialogueSystem;
 
 public class PlayerDataHandler : MonoBehaviour
 {
@@ -94,7 +95,7 @@ public class PlayerDataHandler : MonoBehaviour
             CreateNewSaveFile();
         }
 
-       
+        LoadAllModulesPercentage();
     }
 
 
@@ -154,6 +155,45 @@ public class PlayerDataHandler : MonoBehaviour
         }
 
         CharacterModels[i].SetActive(true);
+    }
+
+    public void GetModulePercentage(int moduleIndex)
+    {
+        int sum = modules[moduleIndex].challenges[0] + modules[moduleIndex].challenges[1] + modules[moduleIndex].challenges[2];
+        int maxScore = PlayerDataHandler.instance.ChallengeMaxScore[moduleIndex];
+        int percentage = Mathf.RoundToInt((float)sum / maxScore * 100);
+
+        switch (moduleIndex)
+        {
+            case 0:
+                DialogueLua.SetVariable("ModuleOnePercentage", percentage);
+                break;
+            case 1:
+                DialogueLua.SetVariable("ModuleTwoPercentage", percentage);
+                break;
+            case 2:
+                DialogueLua.SetVariable("ModuleThreePercentage", percentage);
+                break;
+            case 3:
+                DialogueLua.SetVariable("ModuleFourPercentage", percentage);
+                break;
+            case 4:
+                DialogueLua.SetVariable("ModuleFivePercentage", percentage);
+                break;
+            case 5:
+                DialogueLua.SetVariable("ModuleSixPercentage", percentage);
+                break;
+        }      
+    }
+
+    public void LoadAllModulesPercentage()
+    {
+        int index = 0;
+        foreach (var module in modules)
+        {
+            GetModulePercentage(index);
+            index++;
+        }
     }
 
     [System.Serializable]
