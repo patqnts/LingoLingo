@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Question1
   m_EditorClassIdentifier: 
   answerButtonPrefab: {fileID: 2524743207634652419, guid: 2c9c0bba557649c448d899b6b6e7b92e, type: 3}
-  question: "What does \"W\u01D2 l\xE1iz\xEC F\u0113il\u01DCb\u012Bn\" translate
-    to in English?"
+  question: "What is the English translation for \"Xi\xE8xi\xE8 y\u012Bsh\u0113ng\u201D? "
   answers:
-  - I come from the Philippines.
-  - 'I come from China. '
-  - I come from America.
-  - I come from Japan.
+  - Thank you, doctor
+  - Make a phone call
+  - Headache
+  - Sore throat

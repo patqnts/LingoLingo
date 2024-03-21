@@ -15,7 +15,7 @@ MonoBehaviour:
   answerButtonPrefab: {fileID: 2524743207634652419, guid: 2c9c0bba557649c448d899b6b6e7b92e, type: 3}
   question: How do you say "My parents" in Mandarin?
   answers:
-  - "W\u01D2 de n\u01CEinai y\xE9ye"
   - "W\u01D2 de b\xE0ba m\u0101m\u0101"
+  - "W\u01D2 de n\u01CEinai y\xE9ye"
   - "W\u01D2 de p\xE9ngyou"
   - "W\u01D2 de xi\u01CEo p\xE9ngyou"

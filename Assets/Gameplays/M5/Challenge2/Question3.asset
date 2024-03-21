@@ -15,7 +15,7 @@ MonoBehaviour:
   answerButtonPrefab: {fileID: 2524743207634652419, guid: 2c9c0bba557649c448d899b6b6e7b92e, type: 3}
   question: How would you say "Where are your parents?" in Mandarin?
   answers:
-  - "N\u01D0 sh\xEC n\u01CEl\u01D0?"
   - "N\u01D0 de b\xE0ba m\u0101m\u0101 z\xE0i n\u01CEl\u01D0?"
+  - "N\u01D0 sh\xEC n\u01CEl\u01D0?"
   - "N\u01D0 l\xE1iz\xEC n\u01CEl\u01D0?"
   - "N\u01D0 h\u01CEo!"

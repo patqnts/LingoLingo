@@ -16,5 +16,5 @@ MonoBehaviour:
   question: "\"W\u01D2 l\xE1iz\xEC F\u0113il\u01DCb\u012Bn\" translates to \"I come
     from China\" in English."
   answers:
-  - True
   - False
+  - True
