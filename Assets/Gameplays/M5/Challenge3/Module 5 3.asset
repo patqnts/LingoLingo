@@ -20,7 +20,12 @@ MonoBehaviour:
   - Where are you from
   - Welcome to China
   - My parents are in the Philippines
-  Rights: []
+  Rights:
+  - 
+  - 
+  - 
+  - 
+  - 
   audioClips:
   - {fileID: 8300000, guid: b12c85027c30b9644af20ed26a438be9, type: 3}
   - {fileID: 8300000, guid: 23c55b52213e0c848a5011fb91c9a51f, type: 3}
