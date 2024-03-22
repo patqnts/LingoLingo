@@ -1437,7 +1437,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 11
+        destinationConversationID: 2
+        destinationDialogueID: 13
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1496,6 +1502,110 @@ MonoBehaviour:
         serializedVersion: 2
         x: 630.10675
         y: 127.46924
+        width: 160
+        height: 30
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You can now proceed to Module 1
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: Camera(Wide,listener,8)
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 13
+        destinationConversationID: 2
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 447.67117
+        y: 613.56165
+        width: 160
+        height: 30
+    - id: 14
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Confirm
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 447.67117
+        y: 663.56165
         width: 160
         height: 30
     entryGroups: []
@@ -2981,8 +3091,7 @@ MonoBehaviour:
         destinationDialogueID: 27
         isConnector: 0
         priority: 2
-      conditionsString: Variable["ModuleTwoPercentage"] > 5 and (Variable["ModuleOnePercentage"]
-        >= 70)
+      conditionsString: Variable["ModuleTwoPercentage"] > 5
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3426,7 +3535,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 240.83163, y: 860.5265}
+    canvasScrollPosition: {x: 514.0613, y: 0}
     canvasZoom: 0.76000005
   - id: 5
     fields:
@@ -7874,7 +7983,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 303.32635, y: 0}
+    canvasScrollPosition: {x: 324.84534, y: 8.860748}
     canvasZoom: 0.7900002
   - id: 11
     fields:
@@ -8713,8 +8822,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 292.64212
-        y: 706.7545
+        x: 283.78137
+        y: 690.2988
         width: 160
         height: 30
     - id: 19
@@ -9333,7 +9442,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 413.7412}
+    canvasScrollPosition: {x: 8.860779, y: 484.62726}
     canvasZoom: 0.7900003
   syncInfo:
     syncActors: 0
