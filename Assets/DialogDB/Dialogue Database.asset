@@ -5315,7 +5315,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Module 3 is unlocked!
+        value: Module 4 is unlocked!
         type: 0
         typeString: 
       - title: Sequence
@@ -5370,7 +5370,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Local Resident
+        value: Module 4
         type: 0
         typeString: 
       - title: Sequence
@@ -5398,7 +5398,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 385.88095
+        x: 384.78204
         y: 727.26917
         width: 160
         height: 30
