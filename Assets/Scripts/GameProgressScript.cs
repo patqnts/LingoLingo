@@ -9,10 +9,13 @@ public class GameProgressScript : MonoBehaviour
 
     private void Start()
     {
-        PlayerDataProgress();       
+        PlayerDataProgress();
     }
 
-
+    public void CloseProgress()
+    {
+        PixelCrushers.DialogueSystem.Sequencer.Message("CloseGame");
+    }
     private void HandleZeroPercent()
     {
         foreach (ProgressBar progressBar in ModuleProgress)
