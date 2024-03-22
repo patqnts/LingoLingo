@@ -890,7 +890,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 403.83554
-        y: 97.80821
+        y: 98.83914
         width: 160
         height: 30
     - id: 2
@@ -2826,7 +2826,10 @@ MonoBehaviour:
       - title: Sequence
         value: 'SetDialoguePanel(false);
 
-          required SetDialoguePanel(true)@Message(CloseGame);
+          Camera(MediumL,speaker,2);
+
+          required
+          SetDialoguePanel(true)@Message(CloseGame);
 
           Continue()@Message(CloseGame)'
         type: 0
@@ -3535,8 +3538,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 514.0613, y: 0}
-    canvasZoom: 0.76000005
+    canvasScrollPosition: {x: 309.02853, y: 378.29834}
+    canvasZoom: 0.82
   - id: 5
     fields:
     - title: Title
@@ -4202,7 +4205,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: Camera(MediumL,speaker,2)
         type: 0
         typeString: 
       conversationID: 5
@@ -4439,8 +4442,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 9.964119, y: 0}
-    canvasZoom: 0.7500001
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.87
   - id: 6
     fields:
     - title: Title
@@ -5014,7 +5017,10 @@ MonoBehaviour:
       - title: Sequence
         value: 'SetDialoguePanel(false);
 
-          required SetDialoguePanel(true)@Message(CloseGame);
+          Camera(MediumL,listener,2)
+
+          required
+          SetDialoguePanel(true)@Message(CloseGame);
 
           Continue()@Message(CloseGame)'
         type: 0
@@ -5666,8 +5672,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 60.27824, y: 92.30774}
-    canvasZoom: 0.9100002
+    canvasScrollPosition: {x: 80.319115, y: 111.70338}
+    canvasZoom: 0.9400002
   - id: 9
     fields:
     - title: Title
@@ -6498,7 +6504,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: Camera(MediumL,speaker,2)
         type: 0
         typeString: 
       conversationID: 9
@@ -6769,7 +6775,10 @@ MonoBehaviour:
       - title: Sequence
         value: 'SetDialoguePanel(false);
 
-          required SetDialoguePanel(true)@Message(CloseGame);
+          Camera(MediumL,speaker,2)
+
+          required
+          SetDialoguePanel(true)@Message(CloseGame);
 
           Continue()@Message(CloseGame)'
         type: 0
@@ -7983,8 +7992,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 324.84534, y: 8.860748}
-    canvasZoom: 0.7900002
+    canvasScrollPosition: {x: 295.8377, y: 361.46204}
+    canvasZoom: 0.8800001
   - id: 11
     fields:
     - title: Title
@@ -8749,7 +8758,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: Camera(MediumL,speaker,2)
         type: 0
         typeString: 
       conversationID: 11
