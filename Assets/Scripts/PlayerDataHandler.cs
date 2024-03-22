@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.IO;
 using PixelCrushers.DialogueSystem;
+using UnityEngine.UI;
+using System.Linq;
 
 public class PlayerDataHandler : MonoBehaviour
 {
@@ -14,17 +16,11 @@ public class PlayerDataHandler : MonoBehaviour
     private string dataFilePath;
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SaveModuleChallengesToJson();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LoadModuleChallengesFromJson();
-        }
-    }
+    [Header("CHARACTER SHOP")]
+    public Button previousButton;
+    public Button nextButton;
+    public GameObject lockedIndicatorPrefab;
+    public int[] unlockedCharacters;
 
     private void Awake()
     {
@@ -66,7 +62,8 @@ public class PlayerDataHandler : MonoBehaviour
         {
             characterModelIndex = this.characterModelIndex,
             coins = this.coins,
-            modules = this.modules
+            modules = this.modules,
+            unlockedCharacterIndex = this.unlockedCharacters
         };
 
         string jsonData = JsonUtility.ToJson(data);
@@ -86,6 +83,7 @@ public class PlayerDataHandler : MonoBehaviour
             this.characterModelIndex = data.characterModelIndex;
             this.coins = data.coins;
             this.modules = data.modules;
+            this.unlockedCharacters = data.unlockedCharacterIndex;
 
             SetCharacterModelIndex(this.characterModelIndex);
             Debug.Log("Module challenges loaded from: " + dataFilePath);
@@ -103,6 +101,7 @@ public class PlayerDataHandler : MonoBehaviour
     {
         // Initialize modules array with default challenges
         modules = new Module[6]; // Change numberOfModules to the actual number of modules
+        unlockedCharacters = new int[1];
         for (int i = 0; i < modules.Length; i++)
         {
             modules[i] = new Module
@@ -119,11 +118,13 @@ public class PlayerDataHandler : MonoBehaviour
         // Create new PlayerData instance with default values
         PlayerData newData = new PlayerData
         {
-            characterModelIndex = 0, // Assuming the default character model index is 0
-            coins = 0, // Assuming the default number of coins is 0
-            modules = modules
+            characterModelIndex = 0,
+            coins = 0,
+            modules = modules,
+            unlockedCharacterIndex = unlockedCharacters
         };
 
+        SetCharacterModelIndex(0);
         // Serialize and save the new PlayerData instance to JSON
         string jsonData = JsonUtility.ToJson(newData);
         File.WriteAllText(dataFilePath, jsonData);
@@ -196,6 +197,47 @@ public class PlayerDataHandler : MonoBehaviour
         }
     }
 
+    public void ShopNext()
+    {
+        if(characterModelIndex < CharacterModels.Length - 1)
+        {
+            characterModelIndex++;
+            SetCharacterModelIndex(this.characterModelIndex);
+
+            bool isUnlocked = unlockedCharacters.Any(x => x.Equals(characterModelIndex));
+            if (!isUnlocked)
+            {
+                lockedIndicatorPrefab.SetActive(true);
+            }
+            else
+            {
+                lockedIndicatorPrefab.SetActive(false);
+            }
+        }
+        
+    }
+
+    public void ShopPrevious()
+    {
+        if (characterModelIndex > 0)
+        {
+            characterModelIndex--;
+            SetCharacterModelIndex(this.characterModelIndex);
+
+            bool isUnlocked = unlockedCharacters.Any(x => x.Equals(characterModelIndex));
+            if (!isUnlocked)
+            {
+                lockedIndicatorPrefab.SetActive(true);
+            }
+            else
+            {
+                lockedIndicatorPrefab.SetActive(false);
+            }
+        }
+
+    }
+
+
     [System.Serializable]
     public class PlayerData
     {
@@ -203,6 +245,7 @@ public class PlayerDataHandler : MonoBehaviour
         public int coins;
 
         public Module[] modules;
+        public int[] unlockedCharacterIndex;
     }
 
     [System.Serializable]
