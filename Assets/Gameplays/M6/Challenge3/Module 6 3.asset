@@ -20,10 +20,10 @@ MonoBehaviour:
   - Drink water
   - Make a phone call
   - I have a headache
-  Rights:
-  - "N\u01D0 h\u01CEo, y\u012Bsh\u0113ng "
-  - "du\u014D xi\u016Bx\xED "
-  - "du\u014D h\u0113 shu\u01D0 "
-  - "d\u01CE di\xE0nhu\xE0 "
-  - "W\u01D2 t\xF3ut\xF2ng "
-  audioClips: []
+  Rights: []
+  audioClips:
+  - {fileID: 8300000, guid: ac0c33e6cc3f79a47a33d56e400433da, type: 3}
+  - {fileID: 8300000, guid: d4bdb5cb7e665844e8b48393f6353298, type: 3}
+  - {fileID: 8300000, guid: db74d74ed940d064299ba13a8ed2f38b, type: 3}
+  - {fileID: 8300000, guid: 6c9f9d7e4906a7248925ae401bb7f41e, type: 3}
+  - {fileID: 8300000, guid: cde11d70a2647b345952e21e2f0ca3bb, type: 3}
