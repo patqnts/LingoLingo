@@ -7,12 +7,13 @@ using System.Linq;
 public class PlayerDataHandler : MonoBehaviour
 {
     public static PlayerDataHandler instance;
+    public GameObject playerPos;
     private GameObject player;
+    public Module[] modules;
+    public GameObject[] CharacterModels;
+    public int[] ChallengeMaxScore;
     public int characterModelIndex;
     public int coins;
-    public GameObject[] CharacterModels;
-    public Module[] modules;
-    public int[] ChallengeMaxScore;
     private string dataFilePath;
 
 
@@ -38,8 +39,6 @@ public class PlayerDataHandler : MonoBehaviour
         {
             Debug.LogError("Player GameObject not found in the scene.");
         }
-
-        LoadModuleChallengesFromJson();
     }
 
     public void SetModuleValue(int moduleIndex, int challengeIndex, int challengeScore)
@@ -63,6 +62,7 @@ public class PlayerDataHandler : MonoBehaviour
     {
         PlayerData data = new PlayerData
         {
+            playerPos = this.playerPos.transform.position,
             characterModelIndex = this.characterModelIndex,
             coins = this.coins,
             modules = this.modules,
@@ -83,6 +83,7 @@ public class PlayerDataHandler : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(jsonData);
 
             // Assign loaded values to module_challenge arrays
+            this.playerPos.transform.position = data.playerPos;
             this.characterModelIndex = data.characterModelIndex;
             this.coins = data.coins;
             this.modules = data.modules;
@@ -323,6 +324,7 @@ public class PlayerDataHandler : MonoBehaviour
     [System.Serializable]
     public class PlayerData
     {
+        public Vector3 playerPos; 
         public int characterModelIndex;
         public int coins;
 
