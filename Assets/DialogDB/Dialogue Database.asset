@@ -9719,11 +9719,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 3
         type: 5
@@ -9735,11 +9735,11 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 'SetDialoguePanel(false);
 
@@ -9750,7 +9750,7 @@ MonoBehaviour:
 
           Continue()@Message(CloseGame)'
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 13
       isRoot: 0
       isGroup: 0

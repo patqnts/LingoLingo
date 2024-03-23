@@ -20,7 +20,10 @@ public class PlayerDataHandler : MonoBehaviour
     public Button previousButton;
     public Button nextButton;
     public GameObject lockedIndicatorPrefab;
+    public Button buyButton;
+    public GameObject priceDisplay;
     public int[] unlockedCharacters;
+    
 
     private void Awake()
     {
@@ -205,13 +208,19 @@ public class PlayerDataHandler : MonoBehaviour
             SetCharacterModelIndex(this.characterModelIndex);
 
             bool isUnlocked = unlockedCharacters.Any(x => x.Equals(characterModelIndex));
-            if (!isUnlocked)
+
+            if (!isUnlocked) // IF CHARACTER NOT BOUGHT YET
             {
                 lockedIndicatorPrefab.SetActive(true);
+                buyButton.interactable = true;
+                priceDisplay.gameObject.SetActive(true);
             }
-            else
+            else // IF CHARACTER OWNED
             {
                 lockedIndicatorPrefab.SetActive(false);
+                buyButton.interactable = false;
+                priceDisplay.gameObject.SetActive(false);
+                SaveModuleChallengesToJson();
             }
         }
         
@@ -228,13 +237,86 @@ public class PlayerDataHandler : MonoBehaviour
             if (!isUnlocked)
             {
                 lockedIndicatorPrefab.SetActive(true);
+                priceDisplay.gameObject.SetActive(true);
+                buyButton.interactable = true;
             }
             else
             {
                 lockedIndicatorPrefab.SetActive(false);
+                buyButton.interactable = false;
+                priceDisplay.gameObject.SetActive(false);
+                SaveModuleChallengesToJson();
             }
         }
 
+    }
+
+    public void CloseShop()
+    {
+        bool isUnlocked = unlockedCharacters.Any(x => x.Equals(characterModelIndex));
+        if (isUnlocked)
+        {
+            SaveModuleChallengesToJson();
+        }
+        else
+        {
+            LoadModuleChallengesFromJson();
+        }
+
+        lockedIndicatorPrefab.SetActive(false);
+        priceDisplay.gameObject.SetActive(false);
+        buyButton.interactable = false;
+        PixelCrushers.DialogueSystem.Sequencer.Message("CloseGame");
+    }
+
+    public void BuyCharacter(int characterIndex, int cost)
+    {
+        if (coins >= cost)
+        {
+            coins -= cost;
+
+            // Check if the character is already unlocked
+            if (!unlockedCharacters.Contains(characterIndex))
+            {
+                // Create a new array with increased size
+                int[] newUnlockedCharacters = new int[unlockedCharacters.Length + 1];
+
+                // Copy existing unlocked characters to the new array
+                for (int i = 0; i < unlockedCharacters.Length; i++)
+                {
+                    newUnlockedCharacters[i] = unlockedCharacters[i];
+                }
+
+                // Add the newly unlocked character to the array
+                newUnlockedCharacters[unlockedCharacters.Length] = characterIndex;
+
+                // Update the reference to the new array
+                unlockedCharacters = newUnlockedCharacters;
+
+                // Update UI or perform any other necessary actions
+                // For example, update the UI to reflect the newly unlocked character
+                priceDisplay.gameObject.SetActive(false);
+                buyButton.interactable = false;  
+                // Save changes to JSON
+                SaveModuleChallengesToJson();
+            }
+            else
+            {
+                Debug.Log("Character already unlocked.");
+            }
+        }
+        else
+        {
+            Debug.Log("Not enough coins");
+        }
+    }
+
+    public void PurchaseCharacter()
+    {
+        int characterIndex = characterModelIndex;
+        int cost = 500;
+
+        BuyCharacter(characterIndex, cost);
     }
 
 
