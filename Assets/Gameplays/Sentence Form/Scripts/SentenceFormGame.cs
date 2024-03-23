@@ -19,6 +19,7 @@ public class SentenceFormGame : MonoBehaviour
     public int module;
     public int challengeIndex;
     private int currentChallengeIndex = 0;
+    public TextMeshProUGUI english;
     private void Start()
     {
         GameTimerScript.instance.FinishGameEvent += FinalizeForm;
@@ -44,7 +45,7 @@ public class SentenceFormGame : MonoBehaviour
         if (currentChallengeIndex < scriptableObject.Length) // Check if there are more challenges
         {
             SentenceFormScriptableObject currentScriptableObject = scriptableObject[currentChallengeIndex];
-
+            english.text = currentScriptableObject.sentenceEnglish.ToString();
             int sentenceIndex = 1;
             foreach (string word in currentScriptableObject.words)
             {

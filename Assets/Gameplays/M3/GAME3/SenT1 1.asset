@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Word: {fileID: 8814996677927038444, guid: 476c0572b14e0e24c879b7c96cede294, type: 3}
   SentenceLine: {fileID: 4352447625298453346, guid: fbc23c131e09f5d43a0107ae884a81e1, type: 3}
+  sentenceEnglish: (How do I get to the restaurant)
   words:
   - "C\u0101ngu\u01CEn "
   - "z\u011Bnme "
