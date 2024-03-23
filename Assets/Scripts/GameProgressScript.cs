@@ -1,4 +1,5 @@
 using Michsky.MUIP;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,23 @@ public class GameProgressScript : MonoBehaviour
     [SerializeField] private ProgressBar[] ModuleProgress;
     public int[] percentage;
 
+    [Header("Module1")]
+    public TextMeshProUGUI[] text1;
+
+    [Header("Module2")]
+    public TextMeshProUGUI[] text2;
+
+    [Header("Module3")]
+    public TextMeshProUGUI[] text3;
+
+    [Header("Module4")]
+    public TextMeshProUGUI[] text4;
+
+    [Header("Module5")]
+    public TextMeshProUGUI[] text5;
+
+    [Header("Module6")]
+    public TextMeshProUGUI[] text6;
     private void Start()
     {
         PlayerDataProgress();
@@ -37,6 +55,41 @@ public class GameProgressScript : MonoBehaviour
         foreach (PlayerDataHandler.Module module in PlayerDataHandler.instance.modules)
         {
             int sum = module.challenges[0] + module.challenges[1] + module.challenges[2];
+
+            switch (currentIndex)
+            {
+                case 0:
+                    text1[0].text = "Game 1: " + module.challenges[0].ToString();
+                    text1[1].text = "Game 2: " + module.challenges[1].ToString();
+                    text1[2].text = "Game 3: " + module.challenges[2].ToString();
+                    break;
+                case 1:
+                    text2[0].text = "Game 1: " + module.challenges[0].ToString();
+                    text2[1].text = "Game 2: " + module.challenges[1].ToString();
+                    text2[2].text = "Game 3: " + module.challenges[2].ToString();
+                    break;
+                case 2:
+                    text3[0].text = "Game 1: " + module.challenges[0].ToString();
+                    text3[1].text = "Game 2: " + module.challenges[1].ToString();
+                    text3[2].text = "Game 3: " + module.challenges[2].ToString();
+                    break;
+                case 3:
+                    text4[0].text = "Game 1: " + module.challenges[0].ToString();
+                    text4[1].text = "Game 2: " + module.challenges[1].ToString();
+                    text4[2].text = "Game 3: " + module.challenges[2].ToString();
+                    break;
+                case 4:
+                    text5[0].text = "Game 1: " + module.challenges[0].ToString();
+                    text5[1].text = "Game 2: " + module.challenges[1].ToString();
+                    text5[2].text = "Game 3: " + module.challenges[2].ToString();
+                    break;
+                case 5:
+                    text6[0].text = "Game 1: " + module.challenges[0].ToString();
+                    text6[1].text = "Game 2: " + module.challenges[1].ToString();
+                    text6[2].text = "Game 3: " + module.challenges[2].ToString();
+                    break;
+            }
+
             int maxScore = PlayerDataHandler.instance.ChallengeMaxScore[currentIndex];
             if(sum <= 1)
             {

@@ -4960,7 +4960,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: Camera(MediumL,speaker,2)
         type: 0
         typeString: 
       conversationID: 7
@@ -5270,7 +5270,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: Camera(MediumL,speaker,2)
         type: 0
         typeString: 
       conversationID: 7
@@ -5672,8 +5672,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 80.319115, y: 111.70338}
-    canvasZoom: 0.9400002
+    canvasScrollPosition: {x: 13.7215, y: 17.604935}
+    canvasZoom: 0.8200003
   - id: 9
     fields:
     - title: Title

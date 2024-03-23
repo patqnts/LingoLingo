@@ -14,6 +14,7 @@ public class ModulesHandler : MonoBehaviour
 
     public GameObject ConsVows;
     public GameObject CalendarDates;
+    public GameObject Module3FlashCard;
 
     [Header("Module 1")]
     public GameObject[] challenges1;
@@ -36,6 +37,11 @@ public class ModulesHandler : MonoBehaviour
     public void ShowCalendar()
     {
         currentGame = Instantiate(CalendarDates, this.transform);
+    }
+
+    public void ShowM3FlashCards()
+    {
+        currentGame = Instantiate(Module3FlashCard, this.transform);
     }
 
     public void Module1(int index)
