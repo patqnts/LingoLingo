@@ -25,6 +25,7 @@ public class ObjectMatchForm : MonoBehaviour
     private List<MatchItem> matches = new List<MatchItem>();
     private List<MatchItem> rightItems = new List<MatchItem>();
     public int itemsCount;
+    private int coinReward;
 
 
     void Start()
@@ -35,6 +36,7 @@ public class ObjectMatchForm : MonoBehaviour
         GameTimerScript.instance.FinishGameEvent += FinalizeGame;
         GameTimerScript.instance.StartTimer(gameDuration);
         GameTimerScript.instance.timerText = timer;
+        coinReward = 0;
     }
     private void LoadItems()
     {
@@ -94,6 +96,7 @@ public class ObjectMatchForm : MonoBehaviour
                 if (!string.IsNullOrEmpty(item.itemName) && item.answer == item.itemName)
                 {
                     points++;
+                    coinReward += 10;
                 }
             }
         }
@@ -138,8 +141,9 @@ public class ObjectMatchForm : MonoBehaviour
     {
         Debug.Log($"Result: {points}/{maxPoints}");
         GameObject result = Instantiate(levelCompleteUI,gameObjectcontainer);
-        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {points}/{maxPoints}";
+        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {points}/{maxPoints}\n+{coinReward} coins";
         PlayerDataHandler.instance.SetModuleValue(module, challengeIndex, points);
+        PlayerDataHandler.instance.CoinReward(coinReward);
         StartCoroutine(CloseThisGame());
     }
 

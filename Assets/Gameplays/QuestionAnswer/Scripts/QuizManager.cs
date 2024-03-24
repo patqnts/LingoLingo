@@ -23,6 +23,7 @@ public class QuizManager : MonoBehaviour
     public float gameDuration;
     public int module;
     public int challengeIndex;
+    private int coinReward;
 
     private void Start()
     {//
@@ -33,6 +34,7 @@ public class QuizManager : MonoBehaviour
         LoadQuestion(currentQuestionIndex);
         GameTimerScript.instance.StartTimer(gameDuration);
         GameTimerScript.instance.timerText = timer;
+        coinReward = 0;
     }
     private void OnDestroy()
     {
@@ -93,6 +95,7 @@ public class QuizManager : MonoBehaviour
         if (Id == 0)
         {
             currentScore++;
+            coinReward += 10;
         }
 
         currentQuestionIndex++; // Increment the index here
@@ -118,8 +121,9 @@ public class QuizManager : MonoBehaviour
     {
         GameTimerScript.instance.StopTimer();
         GameObject result = Instantiate(levelCompleteUI, gameObjectcontainer);
-        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {currentScore}/{maxScore}";
+        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {currentScore}/{maxScore}\n+{coinReward} coins";
         PlayerDataHandler.instance.SetModuleValue(module, challengeIndex, currentScore);
+        PlayerDataHandler.instance.CoinReward(coinReward);
         StartCoroutine(CloseThisGame());
     }
 }

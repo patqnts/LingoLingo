@@ -3,10 +3,13 @@ using System.IO;
 using PixelCrushers.DialogueSystem;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
 
 public class PlayerDataHandler : MonoBehaviour
 {
     public static PlayerDataHandler instance;
+    public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI shopCoinsText;
     public GameObject playerPos;
     private GameObject player;
     public Module[] modules;
@@ -39,6 +42,18 @@ public class PlayerDataHandler : MonoBehaviour
         {
             Debug.LogError("Player GameObject not found in the scene.");
         }
+    }
+    public void SetCoins()
+    {
+        coinsText.text = coins.ToString();
+        shopCoinsText.text = coins.ToString();
+
+    }
+
+    public void CoinReward(int coins)
+    {
+        this.coins += coins;
+        SetCoins();
     }
 
     public void SetModuleValue(int moduleIndex, int challengeIndex, int challengeScore)
@@ -91,6 +106,7 @@ public class PlayerDataHandler : MonoBehaviour
 
             SetCharacterModelIndex(this.characterModelIndex);
             Debug.Log("Module challenges loaded from: " + dataFilePath);
+            SetCoins();
         }
         else
         {
@@ -127,7 +143,7 @@ public class PlayerDataHandler : MonoBehaviour
             modules = modules,
             unlockedCharacterIndex = unlockedCharacters
         };
-
+        SetCoins();
         SetCharacterModelIndex(0);
         // Serialize and save the new PlayerData instance to JSON
         string jsonData = JsonUtility.ToJson(newData);

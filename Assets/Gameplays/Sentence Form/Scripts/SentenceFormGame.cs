@@ -19,13 +19,14 @@ public class SentenceFormGame : MonoBehaviour
     public int module;
     public int challengeIndex;
     private int currentChallengeIndex = 0;
+    private int coinReward;
     public TextMeshProUGUI english;
     private void Start()
     {
         GameTimerScript.instance.FinishGameEvent += FinalizeForm;
         sentenceLine = new List<SentenceLine>();
         instance = this;
-
+        coinReward = 0;
         GameTimerScript.instance.StartTimer(gameDuration);
         GameTimerScript.instance.timerText = timer;
         LoadChallenge();
@@ -35,8 +36,10 @@ public class SentenceFormGame : MonoBehaviour
     {
         GameTimerScript.instance.StopTimer();
         GameObject result = Instantiate(levelCompleteUI, gameObjectcontainer);
-        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score {currentScore}/{maxScore}";
+        result.GetComponentInChildren<TextMeshProUGUI>().text = $"Your score: {currentScore}/{maxScore}\n+{coinReward} coins";
         PlayerDataHandler.instance.SetModuleValue(module, challengeIndex, currentScore);
+        PlayerDataHandler.instance.CoinReward(coinReward);
+
         StartCoroutine(CloseThisGame());
     }
 
@@ -113,6 +116,7 @@ public class SentenceFormGame : MonoBehaviour
         if (isCorrectOrder)
         {
             currentScore++; // Increment current score if order is correct
+            coinReward += 20;
         }
 
         currentChallengeIndex++; // Move to the next challenge
