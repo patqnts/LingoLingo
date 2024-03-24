@@ -141,7 +141,8 @@ public class PlayerDataHandler : MonoBehaviour
             characterModelIndex = 0,
             coins = 0,
             modules = modules,
-            unlockedCharacterIndex = unlockedCharacters
+            unlockedCharacterIndex = unlockedCharacters,
+            playerPos = playerPos.transform.position,
         };
         SetCoins();
         SetCharacterModelIndex(0);
