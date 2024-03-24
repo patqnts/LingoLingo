@@ -316,6 +316,7 @@ public class PlayerDataHandler : MonoBehaviour
                 buyButton.interactable = false;  
                 // Save changes to JSON
                 SaveModuleChallengesToJson();
+                SetCoins();
             }
             else
             {
