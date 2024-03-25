@@ -6,6 +6,7 @@ public class SoundHandler : MonoBehaviour
 {
     public static SoundHandler instance;
     public AudioSource audioSource;
+    public AudioSource clickSource;
     public AudioClip[] clip;
 
     // Enum to define different game states
@@ -22,6 +23,11 @@ public class SoundHandler : MonoBehaviour
     void Start()
     {
         instance = this;
+    }
+
+    public void Click()
+    {
+        clickSource.Play();
     }
 
     // Method to set the game state

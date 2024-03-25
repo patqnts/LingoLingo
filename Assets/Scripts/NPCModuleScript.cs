@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class NPCModuleScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioSource step;
+    public void StepSound()
+    {
+        step.Play();
+    }
    
 }
