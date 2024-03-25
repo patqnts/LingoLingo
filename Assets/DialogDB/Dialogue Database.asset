@@ -859,7 +859,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker,2)
+        value: 'Camera(Medium,speaker,2);
+
+          AnimatorPlay(Wave);'
         type: 0
         typeString: 
       conversationID: 2
@@ -976,7 +978,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: AnimatorPlay(Bow);
         type: 0
         typeString: 
       conversationID: 2
@@ -1423,7 +1425,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AnimatorPlay(Bow);
         type: 0
         typeString: CustomFieldType_Text
       - title: EventGuid
@@ -1609,8 +1611,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 127.01266, y: 33.4406}
-    canvasZoom: 0.97000015
+    canvasScrollPosition: {x: 72.29158, y: 7.608881}
+    canvasZoom: 0.88000023
   - id: 3
     fields:
     - title: Title
@@ -1979,7 +1981,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker); {{default}}
+        value: "Camera(Medium,speaker); \nAnimatorPlay(Bow);\n{{default}}"
         type: 0
         typeString: 
       conversationID: 4
@@ -2036,7 +2038,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker); {{default}}
+        value: "Camera(Medium,speaker); \nAnimatorPlay(Bow);\n{{default}}"
         type: 0
         typeString: 
       conversationID: 4
@@ -2149,7 +2151,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium Right,listener); {{default}}
+        value: "Camera(Medium Right,listener);\nAnimatorPlay(Thanks);\n {{default}}"
         type: 0
         typeString: 
       conversationID: 4
@@ -2342,7 +2344,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 683.616
+        x: 682.585
         y: 418.10577
         width: 160
         height: 30
@@ -3538,7 +3540,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 245.61392, y: 457.56665}
+    canvasScrollPosition: {x: 241.0224, y: 285.1316}
     canvasZoom: 0.82
   - id: 5
     fields:
@@ -3668,7 +3670,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker,2)
+        value: 'Camera(Medium,speaker,2);
+
+          AnimatorPlay(Bow);'
         type: 0
         typeString: 
       conversationID: 5
@@ -4036,7 +4040,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: AnimatorPlay(Thanks);
         type: 0
         typeString: 
       - title: EventGuid
@@ -4446,8 +4450,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 29.202566, y: 31.24997}
-    canvasZoom: 0.9599999
+    canvasScrollPosition: {x: 23.999964, y: 56.94149}
+    canvasZoom: 0.84
   - id: 6
     fields:
     - title: Title
@@ -5676,8 +5680,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 13.7215, y: 17.604935}
-    canvasZoom: 0.8200003
+    canvasScrollPosition: {x: 9.389889, y: 0}
+    canvasZoom: 0.88000023
   - id: 9
     fields:
     - title: Title
