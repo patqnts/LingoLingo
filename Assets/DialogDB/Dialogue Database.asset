@@ -892,7 +892,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 403.83554
-        y: 98.83914
+        y: 97.702774
         width: 160
         height: 30
     - id: 2
@@ -2655,7 +2655,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker); {{default}}
+        value: "Camera(Medium,speaker); \nAnimatorPlay(Thanks);\n{{default}}"
         type: 0
         typeString: 
       conversationID: 4
@@ -2710,7 +2710,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,listener); {{default}}
+        value: "Camera(Medium,listener);\nAnimatorPlay(Bow);\n {{default}}"
         type: 0
         typeString: 
       conversationID: 4
@@ -3540,8 +3540,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 241.0224, y: 285.1316}
-    canvasZoom: 0.82
+    canvasScrollPosition: {x: 245.32712, y: 317.3965}
+    canvasZoom: 0.84999996
   - id: 5
     fields:
     - title: Title
@@ -4856,7 +4856,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker,2)
+        value: 'Camera(Medium,speaker,2);
+
+          AnimatorPlay(Bow);'
         type: 0
         typeString: 
       conversationID: 7
@@ -5816,7 +5818,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker,2)
+        value: 'Camera(Medium,speaker,2);
+
+          AnimatorPlay(Bow);'
         type: 0
         typeString: 
       conversationID: 9
@@ -6974,7 +6978,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker); {{default}}
+        value: "Camera(Medium,speaker); \nAnimatorPlay(Bow);\n{{default}}"
         type: 0
         typeString: 
       conversationID: 10
@@ -7030,7 +7034,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(Medium,speaker); {{default}}
+        value: "Camera(Medium,speaker); \nAnimatorPlay(Bow);\n{{default}}"
         type: 0
         typeString: 
       conversationID: 10
@@ -8000,8 +8004,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 320.3269, y: 697.72943}
-    canvasZoom: 0.85000026
+    canvasScrollPosition: {x: 261.63458, y: 129.69333}
+    canvasZoom: 0.7900003
   - id: 11
     fields:
     - title: Title
@@ -8197,7 +8201,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: AnimatorPlay(Bow);
         type: 0
         typeString: 
       conversationID: 11
@@ -9459,7 +9463,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 641.3993}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.9700004
   - id: 12
     fields:
