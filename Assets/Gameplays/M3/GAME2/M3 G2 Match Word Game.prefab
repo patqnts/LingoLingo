@@ -730,8 +730,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 8.0666, y: -57.706116}
-  m_SizeDelta: {x: 705.2543, y: 115.4122}
+  m_AnchoredPosition: {x: -96.800156, y: -57.706116}
+  m_SizeDelta: {x: 1122.4159, y: 115.4122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7561261181648945762
 CanvasRenderer:
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Match the correct Items
+  m_text: Match the words accordingly
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -788,8 +788,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35.4
+  m_fontSizeBase: 35.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1073,8 +1073,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -196, y: -93.42993}
-  m_SizeDelta: {x: 392.01, y: 186.8598}
+  m_AnchoredPosition: {x: -103.81, y: -57.706}
+  m_SizeDelta: {x: 207.63, y: 115.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7298597912597814502
 CanvasRenderer:
