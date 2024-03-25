@@ -409,7 +409,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Entry 1
-      value: '[var=Items Found]/5 found'
+      value: '[var=Items Found]/4 found'
       type: 0
       typeString: 
   locations: []
