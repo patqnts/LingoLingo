@@ -4947,11 +4947,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 8
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -4959,12 +4959,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "(H\u01CEo de, xi\xE8xi\xE8 n\u01D0 de b\u0101ngzh\xF9!) Okay, thank
-          you for your help!"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
-        value: Camera(MediumL,speaker,2)
+        value: 
         type: 0
         typeString: 
       conversationID: 7
@@ -5003,11 +5002,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 8
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -5015,13 +5014,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: "(H\u01CEo de, xi\xE8xi\xE8 n\u01D0 de b\u0101ngzh\xF9!) Okay, thank
+          you for your help!"
         type: 0
         typeString: 
       - title: Sequence
         value: 'SetDialoguePanel(false);
 
-          Camera(MediumL,listener,2)
+          Camera(MediumL,listener,2);
 
           required
           SetDialoguePanel(true)@Message(CloseGame);

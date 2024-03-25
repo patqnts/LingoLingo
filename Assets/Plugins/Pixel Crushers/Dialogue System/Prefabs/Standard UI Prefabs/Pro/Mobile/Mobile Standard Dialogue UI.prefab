@@ -1603,7 +1603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightToLeft: 0
   charactersPerSecond: 50
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: c032d69cc4a400640b418aed41d632f9, type: 3}
   alternateAudioClips: []
   audioSource: {fileID: 0}
   usePlayOneShot: 0
