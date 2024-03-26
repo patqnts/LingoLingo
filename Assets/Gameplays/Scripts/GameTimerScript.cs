@@ -59,4 +59,10 @@ public class GameTimerScript : MonoBehaviour
         Debug.Log("Timer has run out!");
         FinishGameEvent?.Invoke();
     }
+
+    public void QuitApp()
+    {
+        PlayerDataHandler.instance.SaveModuleChallengesToJson();
+        Application.Quit();
+    }
 }

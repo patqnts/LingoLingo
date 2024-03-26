@@ -1,3 +1,4 @@
+using Michsky.MUIP;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class SoundHandler : MonoBehaviour
 {
     public static SoundHandler instance;
+    [SerializeField] private SliderManager volumeSlider;
+    private const string volumePrefsKey = "VolumeLevel";
     public AudioSource audioSource;
     public AudioSource clickSource;
     public AudioClip[] clip;
@@ -23,6 +26,42 @@ public class SoundHandler : MonoBehaviour
     void Start()
     {
         instance = this;
+
+        if (PlayerPrefs.HasKey(volumePrefsKey))
+        {
+            float savedVolume = PlayerPrefs.GetFloat(volumePrefsKey);
+            volumeSlider.mainSlider.value = savedVolume;
+            SetVolume(savedVolume);
+        }
+        else
+        {
+            // Default volume level
+            volumeSlider.mainSlider.value = 1f;
+            SetVolume(1f);
+        }
+
+        // Subscribe to slider's value changed event directly in the inspector
+        volumeSlider.mainSlider.onValueChanged.AddListener(AdjustVolume);
+    }
+
+    void AdjustVolume(float value)
+    {
+        SetVolume(value);
+
+        // Save the volume level
+        PlayerPrefs.SetFloat(volumePrefsKey, value);
+        PlayerPrefs.Save();
+    }
+
+    void SetVolume(float value)
+    {
+        // Ensure value is between 0 and 1
+        float clampedValue = Mathf.Clamp01(value);
+
+        // Adjust AudioListener volume
+        AudioListener.volume = clampedValue;
+
+        Debug.Log("Volume adjusted to: " + clampedValue);
     }
 
     public void Click()

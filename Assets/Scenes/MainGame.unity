@@ -34646,6 +34646,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224137540336588508, guid: cc43aa00848c8bc40b7ee6ded0722cdb, type: 3}
   m_PrefabInstance: {fileID: 1586000490}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1586000494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114192621590090856, guid: cc43aa00848c8bc40b7ee6ded0722cdb, type: 3}
+  m_PrefabInstance: {fileID: 1586000490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebbd33be3a73ca40aa6a4371ff9a6c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1589372761
 GameObject:
   m_ObjectHideFlags: 0
@@ -40805,6 +40816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdd369fb049e584aaf0c5d60d2b06a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 1586000494}
   audioSource: {fileID: 1921790466}
   clickSource: {fileID: 1921790468}
   clip:
@@ -44454,6 +44466,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1921790467}
         m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
         m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1444919961}
+        m_TargetAssemblyTypeName: GameTimerScript, Assembly-CSharp
+        m_MethodName: QuitApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
