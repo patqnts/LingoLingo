@@ -346,7 +346,7 @@ MonoBehaviour:
   - id: 15
     fields:
     - title: Name
-      value: Chen
+      value: Chei
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
@@ -1741,8 +1741,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 72.29158, y: 7.608881}
-    canvasZoom: 0.88000023
+    canvasScrollPosition: {x: 18.787445, y: 11.692191}
+    canvasZoom: 0.7900003
   - id: 3
     fields:
     - title: Title
@@ -11702,7 +11702,7 @@ MonoBehaviour:
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 3
+      value: 15
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -11748,7 +11748,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 3
+        value: 15
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -11805,7 +11805,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 3
+        value: 15
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -11862,7 +11862,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 3
+        value: 15
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -11913,7 +11913,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 3
+        value: 15
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -11968,7 +11968,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 3
+        value: 15
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
