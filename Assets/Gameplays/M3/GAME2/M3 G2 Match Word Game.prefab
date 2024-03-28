@@ -367,8 +367,8 @@ MonoBehaviour:
   levelCompleteUI: {fileID: 2651829417818944491, guid: f2e229de1d4bdcf4aaeabddffa8880d2, type: 3}
   timer: {fileID: 777983784458207801}
   gameDuration: 60
-  module: 1
-  challengeIndex: 0
+  module: 2
+  challengeIndex: 1
   itemsCount: 5
 --- !u!1 &3765696658342943783
 GameObject:
