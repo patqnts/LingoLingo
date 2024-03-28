@@ -43,7 +43,7 @@ public class QuizManager : MonoBehaviour
 
     public void LoadQuestion(int Index)
     {
-
+        SoundHandler.instance.clickSource.Play();
         foreach (Transform child in AnswerParent.transform)
         {
             Destroy(child.gameObject);

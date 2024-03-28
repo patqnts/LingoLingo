@@ -59,6 +59,7 @@ public class ObjectMatchForm : MonoBehaviour
         intName = 0;
         
         int audioIndex = 0;
+        int imageIndex = 0;
         foreach (string right in MatchScriptableObject.Rights)
         {
             if(intName < itemsCount)
@@ -74,6 +75,12 @@ public class ObjectMatchForm : MonoBehaviour
                 {
                     item.GetComponentInChildren<PlayAudio>().consVowsClip = MatchScriptableObject.audioClips[audioIndex];
                     audioIndex++;
+                }
+
+                if(MatchScriptableObject.ImageRight.Length > 0)
+                {
+                    item.GetComponentInChildren<Image>().sprite = MatchScriptableObject.ImageRight[imageIndex];
+                    imageIndex++;
                 }
 
                 rightItems.Add(rightItem);

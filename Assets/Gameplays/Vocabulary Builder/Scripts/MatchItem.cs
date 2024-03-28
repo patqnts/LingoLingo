@@ -29,6 +29,7 @@ public class MatchItem : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
         Destroy(line);
         connectedItem = null;
         line = Instantiate(linePrefab, transform.position, Quaternion.identity, transform.parent.parent);
+        SoundHandler.instance.clickSource.Play();
         UpdateLine(eventData.position);
     }
 
@@ -41,6 +42,7 @@ public class MatchItem : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
     {
         if (connectedItem == null && hoverItem != null && hoverItem != this && !hoverItem.Left && !hoverItem.Occupied)
         {
+            SoundHandler.instance.clickSource.Play();
             connectedItem = hoverItem;
             hoverItem.Occupied = true;
             answer = connectedItem.itemName;

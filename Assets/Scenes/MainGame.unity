@@ -20358,7 +20358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6346687063385916275, guid: 1e72ce0428d6dc845966d533c3b28ae2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6350873074122625110, guid: 1e72ce0428d6dc845966d533c3b28ae2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -31386,7 +31386,7 @@ MonoBehaviour:
   - {fileID: 2578740409398128424, guid: 270d0acfe804204449c95267f2897c6c, type: 3}
   - {fileID: 2578740409398128424, guid: e18410307607a9f4d9e7f28899f708b8, type: 3}
   challenges3:
-  - {fileID: 2578740409398128424, guid: bb9b9d769382ff346be632ef5680d706, type: 3}
+  - {fileID: 1898205589524461174, guid: 993130ef73f972d448a6574ec3b108df, type: 3}
   - {fileID: 1898205589524461174, guid: f3c73d7c9b2189b43857c4c087a5ba6c, type: 3}
   - {fileID: 844372775219989776, guid: 6fddcf0b02dc1ad48b61da246e9904bb, type: 3}
   challenges4:

@@ -32,6 +32,7 @@ public class DraggableWord : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetParent(wordsContainer); // Set parent to words container initially
         transform.SetAsLastSibling();
         image.raycastTarget = false;
+        SoundHandler.instance.clickSource.Play();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -58,5 +59,6 @@ public class DraggableWord : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
 
         image.raycastTarget = true;
+        SoundHandler.instance.clickSource.Play();
     }
 }
